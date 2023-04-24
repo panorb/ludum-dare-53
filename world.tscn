@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg8emvpe0x0ca"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_oqyos"]
+
+[node name="World" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_oqyos")
