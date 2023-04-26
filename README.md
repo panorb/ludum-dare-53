@@ -5,45 +5,47 @@ Our project for [Ludum Dare 53](https://ldjam.com/).
 ## Folder and Project structure
 The project is split into separate modular features and themes in folders.
 
-The scene file and script file names are written in `UpperCamelCase`. Other file names (including art assets) and directory names are written in `snake_case`.
+Absolutely all file names and all directory names with no exception are written in lowercase `snake_case`. File extensions are without exception lowercase.
 
 Graphics, sounds and further assets are put directly besides the code in the matching folder. New subfolders are normally not needed, except when there is an extraordinary amount of new assets, that can't be organised otherwise.
 *Rule of thumb: Fewer than 3 asset files? No subfolder needed.*
 
 ### Example
-If the project has multiple monsters (a Zombie, a Dragon and a pink and a red elephant) we have a folder "Monster" and matching subfolders for the monster types. The project structure could look like this:
+If the project has multiple monsters (a Zombie, a Dragon, a pink and a red elephant) we have a folder "monster" and matching subfolders for the monster types. The project structure could look like this:
 
 ```
 godot
+|   world.gd
+|   world.tscn
 ├───monster
-│   │   Monster.gd
+│   │   monster.gd
 │   ├───dragon
-│   │   │   Dragon.gd
+│   │   │   dragon.gd
 │   │   │   dragon.png
-│   │   │   Dragon.tscn
+│   │   │   dragon.tscn
 │   │   ├───sounds
 │   │   │       dragon_angry.ogg
 │   │   │       dragon_howl.ogg
 │   │   │       dragon_wing_flap.ogg
 │   │   └───states
-│   │           FireBreath.gd
-│   │           Hovering.gd
-│   │           Howl.gd
-│   │           Idle.gd
+│   │           fire_breath.gd
+│   │           hovering.gd
+│   │           howl.gd
+│   │           idle.gd
 │   ├───elephant
 │   │   │   elephant_colorless.png
-│   │   │   Elephant.gd
-│   │   │   Elephant.tscn
+│   │   │   elephant.gd
+│   │   │   elephant.tscn
 │   │   │   elephant_horn.ogg
 │   │   ├───pink_elephant
-│   │   │       PinkElephant.tscn
-│   │   │       PinkElephant.gd
+│   │   │       pink_elephant.tscn
+│   │   │       pink_elephant.gd
 │   │   └───red_elephant
-│   │           RedElephant.tscn
-│   │           RedElephant.gd
+│   │           red_elephant.tscn
+│   │           red_elephant.gd
 │   └───zombie
-│           Zombie.gd
-│           Zombie.tscn
+│           zombie.gd
+│           zombie.tscn
 │           zombie_death.png
 │           zombie_drooling.png
 │           zombie_growl.ogg
