@@ -1,17 +1,17 @@
 extends CharacterBody2D
 
-const DRAG = 0.02
+const DRAG = 0.05
 
-const WIND_SPEED = 1000000
-
-const MINIMUM_SQUARED_WIND_DISTANCE = 400
+const MAX_WIND_SPEED = 300.0
+const MAX_RAW_WIND_POWER = 400.0
+const WIND_POWER_DROP = 1.0
 
 func get_wind_speed():
 	var wind_speed = Vector2(0, 0)
 	if Input.is_action_pressed("blow_wind"):
 		var wind_direction = get_wind_direction()
 		var wind_power = get_wind_power()
-		wind_speed = wind_direction * WIND_SPEED * wind_power
+		wind_speed = wind_direction * MAX_WIND_SPEED * wind_power
 	return wind_speed
 
 func get_wind_direction():
@@ -23,16 +23,17 @@ func get_wind_direction():
 
 func get_wind_power():
 	var wind_origin = get_global_mouse_position()
-	var squared_distance = position.distance_squared_to(wind_origin)
-	if (squared_distance < MINIMUM_SQUARED_WIND_DISTANCE):
-		squared_distance = MINIMUM_SQUARED_WIND_DISTANCE
-	return 1/squared_distance
+	var distance = position.distance_to(wind_origin)
+	var wind_raw_power = pow(1/(distance), WIND_POWER_DROP)
+	return max(wind_raw_power/ MAX_RAW_WIND_POWER, 1)
 
-func _physics_process(delta):
-	var wind_speed = get_wind_speed()
-	velocity = wind_speed * DRAG + velocity * (1-DRAG)
-	# look_at(target)
-	move_and_slide()
+func adjust_rotation():
+	rotation = asin(velocity.x / MAX_WIND_SPEED)
+
+func adjust_velocity(wind_speed):
+	velocity += (wind_speed - velocity )* DRAG
+
+func reset_outside_position():
 	if (position.x < 50):
 		position.x = 50
 	move_and_slide()
@@ -43,3 +44,11 @@ func _physics_process(delta):
 	move_and_slide()
 	if (position.y > 550):
 		position.y = 550
+
+func _physics_process(_delta):
+	var wind_speed = get_wind_speed()
+	adjust_rotation()
+	adjust_velocity(wind_speed)
+	move_and_slide()
+	reset_outside_position()
+	

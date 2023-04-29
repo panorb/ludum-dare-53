@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg6a3vo7qc1ph"]
+[gd_scene load_steps=6 format=3 uid="uid://dg6a3vo7qc1ph"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_ak8ma"]
 [ext_resource type="PackedScene" uid="uid://dou0y46i5nk8y" path="res://game/battle_field/battle_field.tscn" id="2_kbeyu"]
 [ext_resource type="PackedScene" uid="uid://dqj2lfswoqmh1" path="res://game/cave/cave.tscn" id="3_5wdlg"]
 [ext_resource type="PackedScene" uid="uid://dadh6w74xlxra" path="res://game/card_spawner/card_spawner.tscn" id="4_sv5h8"]
-[ext_resource type="Texture2D" uid="uid://diqmkdcqhvjfc" path="res://icon.svg" id="5_dpkqu"]
-[ext_resource type="Script" path="res://game/balloon.gd" id="5_uhipt"]
+[ext_resource type="PackedScene" uid="uid://dqrb0owc04n30" path="res://game/balloon/balloon.tscn" id="5_jytc0"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ak8ma")
@@ -16,11 +15,4 @@ script = ExtResource("1_ak8ma")
 
 [node name="CardSpawner" parent="." instance=ExtResource("4_sv5h8")]
 
-[node name="balloon" type="CharacterBody2D" parent="."]
-position = Vector2(576, 324)
-script = ExtResource("5_uhipt")
-
-[node name="Sprite2D" type="Sprite2D" parent="balloon"]
-texture = ExtResource("5_dpkqu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="balloon"]
+[node name="Balloon" parent="." instance=ExtResource("5_jytc0")]

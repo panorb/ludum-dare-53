@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqrb0owc04n30"]
+
+[ext_resource type="Script" path="res://game/balloon/balloon.gd" id="1_00v08"]
+[ext_resource type="Texture2D" uid="uid://diqmkdcqhvjfc" path="res://icon.svg" id="2_bmtxa"]
+
+[node name="Balloon" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(576, 324)
+script = ExtResource("1_00v08")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_bmtxa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
