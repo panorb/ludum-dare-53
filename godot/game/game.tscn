@@ -100,3 +100,5 @@ text = "novh einer"
 
 [connection signal="button_down" from="UI/Hero Button" to="UI/HBoxContainer/HBoxContainer/VBoxContainer/Healthbar Main" method="_on_hero_button_down"]
 [connection signal="button_down" from="UI/Enemy Button" to="UI/HBoxContainer/HBoxContainer2/VBoxContainer/Healthbar Enemy" method="_on_enemy_button_down"]
+[node name="Balloon" parent="." instance=ExtResource("5_jytc0")]
+position = Vector2(1148, 264)
