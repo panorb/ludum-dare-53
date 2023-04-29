@@ -5,34 +5,37 @@ class_name Creature
 @export var health: int = 10
 @export var max_health: int = health
 
-signal health_changed(befor_demage_health, health)
-signal dead()
+signal health_changed(old_health, health)
+signal dead
 
 @onready var animation_player = get_node("AnimationPlayer")
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass  # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
+
 func take_damage(damage):
-	var befor_damage_health = health
-	health = health - damage
-	
+	var old_health = health
+	health -= damage
+
 	if health < 0:
 		health = 0
 		animation_player.play("die")
 	else:
 		animation_player.play("hurt")
-	
-	emit_signal('health_changed', befor_damage_health, health)
-	
+
+	emit_signal("health_changed", old_health, health)
+
 	if health == 0:
-		emit_signal('dead')
+		emit_signal("dead")
 
-func play_attack_animation(card_type : String, card_value : int):
+
+func play_attack_animation(card_type: String, card_value: int):
 	animation_player.play("attack")
-
