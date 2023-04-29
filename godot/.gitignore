@@ -2,4 +2,4 @@
 .godot/
 
 # Godot specific
-.import/
+*.import
