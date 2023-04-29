@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dadh6w74xlxra"]
+
+[node name="CardSpawner" type="Node2D"]
