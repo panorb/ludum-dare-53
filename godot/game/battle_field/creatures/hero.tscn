@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdat7vbdng88c"]
+
+[ext_resource type="PackedScene" uid="uid://btdj1js5dgurd" path="res://game/battle_field/creatures/creature.tscn" id="1_nbpoq"]
+
+[node name="Hero" instance=ExtResource("1_nbpoq")]
