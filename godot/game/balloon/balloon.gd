@@ -48,3 +48,4 @@ func _physics_process(_delta) -> void:
 	adjust_velocity(wind_speed)
 	move_and_slide()
 	reset_outside_position()
+

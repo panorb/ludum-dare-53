@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqrb0owc04n30"]
+[gd_scene load_steps=10 format=3 uid="uid://dqrb0owc04n30"]
 
 [ext_resource type="Script" path="res://game/balloon/balloon.gd" id="1_00v08"]
 [ext_resource type="Texture2D" uid="uid://baoqd4onlxlqo" path="res://game/balloon/balloon_cage.svg" id="2_7bswg"]
 [ext_resource type="Texture2D" uid="uid://bh26q30j4picy" path="res://game/balloon/balloon_head.svg" id="2_ilerb"]
 [ext_resource type="Texture2D" uid="uid://b8f182hxp7gas" path="res://game/balloon/fire.svg" id="3_ugihq"]
+[ext_resource type="Script" path="res://game/balloon/enemy.gd" id="5_03pex"]
+[ext_resource type="Texture2D" uid="uid://diqmkdcqhvjfc" path="res://icon.svg" id="5_kk3nn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fu81c"]
 radius = 166.56
@@ -12,29 +14,47 @@ height = 574.3
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogpq1"]
 size = Vector2(350, 505)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fp8hc"]
+size = Vector2(110, 110)
+
 [node name="Balloon" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Balloon" type="CharacterBody2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
+collision_mask = 0
 script = ExtResource("1_00v08")
 
-[node name="Cage" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Cage" type="Sprite2D" parent="Balloon"]
 texture = ExtResource("2_7bswg")
-offset = Vector2(0, 540)
+offset = Vector2(0, 620)
 
-[node name="Fire" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Fire" type="Sprite2D" parent="Balloon"]
 texture = ExtResource("3_ugihq")
-offset = Vector2(-2, 210)
+offset = Vector2(-2, 290)
 
-[node name="Head" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Head" type="Sprite2D" parent="Balloon"]
 texture = ExtResource("2_ilerb")
+offset = Vector2(0, 80)
 
-[node name="CollisionShapeHead" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, -80)
+[node name="CollisionShapeHead" type="CollisionShape2D" parent="Balloon"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_fu81c")
 
-[node name="CollisionShapeCage" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 540)
+[node name="CollisionShapeCage" type="CollisionShape2D" parent="Balloon"]
+position = Vector2(0, 620)
 shape = SubResource("RectangleShape2D_ogpq1")
+
+[node name="Enemy" type="Area2D" parent="."]
+position = Vector2(816, 324)
+scale = Vector2(0.3, 0.3)
+collision_layer = 0
+script = ExtResource("5_03pex")
+
+[node name="SpriteEnemy" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("5_kk3nn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("RectangleShape2D_fp8hc")
+
+[connection signal="area_entered" from="Enemy" to="Balloon" method="_on_enemy_area_entered"]
