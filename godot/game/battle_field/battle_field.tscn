@@ -9,6 +9,7 @@ script = ExtResource("1_qkow4")
 
 [node name="Hero" parent="." instance=ExtResource("1_c8ib1")]
 position = Vector2(280, 290)
+health = 100
 max_health = 100
 
 [node name="Dragon" parent="." instance=ExtResource("3_n2d58")]

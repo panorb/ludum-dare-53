@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://btdj1js5dgurd" path="res://game/battle_field/creatures/creature.tscn" id="1_teh3j"]
 
 [node name="Dragon" instance=ExtResource("1_teh3j")]
+
+[node name="Sprite2D" parent="." index="0"]
+rotation = 0.0
