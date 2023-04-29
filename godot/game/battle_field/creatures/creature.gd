@@ -18,9 +18,9 @@ func _ready():
 func _process(delta):
 	pass
 
-func take_damage(demage):
-	var befor_demage_health = health
-	health = health - demage
+func take_damage(damage):
+	var befor_damage_health = health
+	health = health - damage
 	
 	if health < 0:
 		health = 0
@@ -28,7 +28,7 @@ func take_damage(demage):
 	else:
 		animation_player.play("hurt")
 	
-	emit_signal('health_changed', befor_demage_health, health)
+	emit_signal('health_changed', befor_damage_health, health)
 	
 	if health == 0:
 		emit_signal('dead')
