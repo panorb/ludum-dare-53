@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://dou0y46i5nk8y"]
+[gd_scene load_steps=4 format=3 uid="uid://dou0y46i5nk8y"]
+
+[ext_resource type="PackedScene" uid="uid://bdat7vbdng88c" path="res://game/battle_field/creatures/hero.tscn" id="1_c8ib1"]
+[ext_resource type="Script" path="res://game/battle_field/battle_field.gd" id="1_qkow4"]
+[ext_resource type="PackedScene" uid="uid://cti3bq416q73j" path="res://game/battle_field/creatures/dragon.tscn" id="3_n2d58"]
 
 [node name="BattleField" type="Node2D"]
+script = ExtResource("1_qkow4")
+
+[node name="Hero" parent="." instance=ExtResource("1_c8ib1")]
+position = Vector2(280, 290)
+health = 100
+max_health = 100
+
+[node name="Dragon" parent="." instance=ExtResource("3_n2d58")]
+position = Vector2(592, 275)
+health = 100
+max_health = 100
