@@ -5,8 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://brt5sib6rcr0u" path="res://game/ui/progress.png" id="3_jb6wr"]
 
 [node name="Healthbar" type="TextureProgressBar"]
-offset_right = 500.0
-offset_bottom = 60.0
+offset_left = 92.0
+offset_top = 972.0
+offset_right = 592.0
+offset_bottom = 1032.0
 value = 50.0
 texture_under = ExtResource("1_sysv4")
 texture_over = ExtResource("2_xh2wp")

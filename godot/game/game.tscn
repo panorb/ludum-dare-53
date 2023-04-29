@@ -8,7 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://c4brwjiity7me" path="res://game/ui/healthbar.tscn" id="6_hh28r"]
 [ext_resource type="Script" path="res://game/ui/healthbar.gd" id="7_lg4s3"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_ak8ma")
 
 [node name="Cave" parent="." instance=ExtResource("3_5wdlg")]
@@ -21,9 +25,34 @@ script = ExtResource("1_ak8ma")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Healthbar" parent="UI" instance=ExtResource("6_hh28r")]
-offset_left = 38.0
-offset_top = 979.0
-offset_right = 38.0
-offset_bottom = 979.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+custom_minimum_size = Vector2(600, 50)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Healthbar Main" parent="UI/HBoxContainer/HBoxContainer" instance=ExtResource("6_hh28r")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+script = ExtResource("7_lg4s3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Healthbar Enemy" parent="UI/HBoxContainer/HBoxContainer2" instance=ExtResource("6_hh28r")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 6
 script = ExtResource("7_lg4s3")
