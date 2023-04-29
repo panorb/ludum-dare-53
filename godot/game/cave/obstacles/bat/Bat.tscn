@@ -65,18 +65,18 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_b1v3o")
 animation = &"asleep"
 
-[node name="States" type="Node" parent="."]
+[node name="States" type="Node2D" parent="."]
 
-[node name="Asleep" type="Node" parent="States"]
+[node name="Asleep" type="Node2D" parent="States"]
 script = ExtResource("3_qt4gw")
 
-[node name="Hunt" type="Node" parent="States"]
+[node name="Hunt" type="Node2D" parent="States"]
 script = ExtResource("4_hqkn6")
 
-[node name="Alert" type="Node" parent="States"]
+[node name="Alert" type="Node2D" parent="States"]
 script = ExtResource("5_xe0d7")
 
-[node name="Fly" type="Node" parent="States"]
+[node name="Fly" type="Node2D" parent="States"]
 script = ExtResource("6_rh57w")
 
 [node name="DetectArea" type="Area2D" parent="."]

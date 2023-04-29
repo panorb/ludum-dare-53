@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dqj2lfswoqmh1" path="res://game/cave/cave.tscn" id="3_5wdlg"]
 [ext_resource type="PackedScene" uid="uid://dadh6w74xlxra" path="res://game/card_spawner/card_spawner.tscn" id="4_sv5h8"]
 [ext_resource type="PackedScene" uid="uid://dqrb0owc04n30" path="res://game/balloon/balloon.tscn" id="5_jytc0"]
-[ext_resource type="PackedScene" uid="uid://dueqn07kx1bbs" path="res://game/cave/obstacles/bat/Bat.tscn" id="6_5e73m"]
+[ext_resource type="PackedScene" uid="uid://dueqn07kx1bbs" path="res://game/cave/obstacles/bat/bat.tscn" id="6_5e73m"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ak8ma")
@@ -17,6 +17,7 @@ script = ExtResource("1_ak8ma")
 [node name="CardSpawner" parent="." instance=ExtResource("4_sv5h8")]
 
 [node name="Balloon" parent="." instance=ExtResource("5_jytc0")]
+position = Vector2(141, 136)
 
 [node name="Bat" parent="." instance=ExtResource("6_5e73m")]
 position = Vector2(999, 217)

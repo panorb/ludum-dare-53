@@ -5,9 +5,14 @@ extends State
 
 func _ready():
 	detect_area.body_entered.connect(self._on_DetectArea_body_entered)
+	
 
 func begin():
 	sprite.play("asleep")
+	mark_movement_update(Vector2(0,0))
+
+func update(delta):
+	pass
 
 func _on_DetectArea_body_entered(body : Node2D):
 	mark_finished("Alert")

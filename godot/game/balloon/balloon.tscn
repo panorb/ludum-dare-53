@@ -12,7 +12,7 @@ height = 574.3
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogpq1"]
 size = Vector2(350, 505)
 
-[node name="Balloon" type="CharacterBody2D"]
+[node name="Balloon" type="CharacterBody2D" groups=["balloon"]]
 script = ExtResource("1_00v08")
 
 [node name="Cage" type="Sprite2D" parent="."]
