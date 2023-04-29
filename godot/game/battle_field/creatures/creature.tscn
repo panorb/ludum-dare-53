@@ -1,88 +1,59 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbdaxu1g1qmtw"]
+[gd_scene load_steps=8 format=3 uid="uid://cygpe7bt76uyb"]
 
 [ext_resource type="Script" path="res://game/battle_field/creatures/creature.gd" id="1_j1147"]
 [ext_resource type="Texture2D" uid="uid://diqmkdcqhvjfc" path="res://icon.svg" id="2_k14sy"]
 
-[sub_resource type="Animation" id="Animation_ysqh2"]
+[sub_resource type="Animation" id="Animation_13eqp"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wuiax"]
+resource_name = "hurt"
+
+[sub_resource type="Animation" id="Animation_3355t"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_0cpi7"]
-resource_name = "attack"
-
-[sub_resource type="Animation" id="Animation_p0hig"]
+[sub_resource type="Animation" id="Animation_ad6fw"]
 resource_name = "die"
 
-[sub_resource type="Animation" id="Animation_tskd0"]
-resource_name = "hurt"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_70uuh"]
-resource_name = "idle"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ili3g"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o82yf"]
 _data = {
-"RESET": SubResource("Animation_ysqh2"),
-"attack": SubResource("Animation_0cpi7"),
-"die": SubResource("Animation_p0hig"),
-"hurt": SubResource("Animation_tskd0"),
-"idle": SubResource("Animation_70uuh")
+"RESET": SubResource("Animation_3355t"),
+"attack": SubResource("Animation_13eqp"),
+"die": SubResource("Animation_ad6fw"),
+"hurt": SubResource("Animation_wuiax")
 }
 
 [node name="Creature" type="Node2D"]
 script = ExtResource("1_j1147")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ili3g")
-}
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_k14sy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o82yf")
+}
