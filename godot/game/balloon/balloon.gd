@@ -38,7 +38,7 @@ func adjust_velocity(wind_speed):
 
 
 func reset_outside_position():
-        position.x = max(50, position.x)
+	position.x = max(50, position.x)
 	position.x = min(1800, position.x)
 
 	position.y = max(50, position.y)
