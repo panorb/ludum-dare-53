@@ -39,11 +39,11 @@ func reset_outside_position():
 	move_and_slide()
 	if (position.y < 50):
 		position.y = 50
-	if (position.x > 1000):
-		position.x = 1000
+	if (position.x > 1800):
+		position.x = 1800
 	move_and_slide()
-	if (position.y > 550):
-		position.y = 550
+	if (position.y > 1000):
+		position.y = 1000
 
 func _physics_process(_delta):
 	var wind_speed = get_wind_speed()
