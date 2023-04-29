@@ -8,7 +8,7 @@
 [node name="Balloon" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(984, 683)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_00v08")
 
