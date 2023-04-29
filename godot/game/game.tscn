@@ -8,11 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c4brwjiity7me" path="res://game/ui/healthbar.tscn" id="6_hh28r"]
 [ext_resource type="Script" path="res://game/ui/healthbar.gd" id="7_lg4s3"]
 
-[node name="Game" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="Game" type="Node2D"]
 script = ExtResource("1_ak8ma")
 
 [node name="Cave" parent="." instance=ExtResource("3_5wdlg")]

@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 @onready var battle_field = get_node('BattleField')
 
