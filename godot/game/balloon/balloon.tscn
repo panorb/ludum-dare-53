@@ -1,40 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqrb0owc04n30"]
+[gd_scene load_steps=5 format=3 uid="uid://dqrb0owc04n30"]
 
 [ext_resource type="Script" path="res://game/balloon/balloon.gd" id="1_00v08"]
 [ext_resource type="Texture2D" uid="uid://baoqd4onlxlqo" path="res://game/balloon/balloon_cage.svg" id="2_7bswg"]
 [ext_resource type="Texture2D" uid="uid://bh26q30j4picy" path="res://game/balloon/balloon_head.svg" id="2_ilerb"]
 [ext_resource type="Texture2D" uid="uid://b8f182hxp7gas" path="res://game/balloon/fire.svg" id="3_ugihq"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fu81c"]
-radius = 166.56
-height = 574.3
+[node name="Balloon" type="Node2D"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogpq1"]
-size = Vector2(350, 505)
-
-[node name="Balloon" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(984, 683)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_00v08")
 
-[node name="Cage" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+[node name="Cage" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("2_7bswg")
 offset = Vector2(0, 540)
 
-[node name="Fire" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+[node name="Fire" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("3_ugihq")
 offset = Vector2(-2, 210)
 
-[node name="Head" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+[node name="Head" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("2_ilerb")
 
-[node name="CollisionShapeHead" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-scale = Vector2(0.3, 0.3)
-shape = SubResource("CapsuleShape2D_fu81c")
-
-[node name="CollisionShapeCage" type="CollisionShape2D" parent="."]
-position = Vector2(0, 186)
-scale = Vector2(0.3, 0.3)
-shape = SubResource("RectangleShape2D_ogpq1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
