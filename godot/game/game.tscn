@@ -16,3 +16,4 @@ script = ExtResource("1_ak8ma")
 [node name="CardSpawner" parent="." instance=ExtResource("4_sv5h8")]
 
 [node name="Balloon" parent="." instance=ExtResource("5_jytc0")]
+position = Vector2(1148, 264)
