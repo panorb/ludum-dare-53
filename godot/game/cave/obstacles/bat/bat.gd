@@ -17,3 +17,5 @@ func switch_state(state_name : String) -> void:
 
 func _on_state_finish(next_state_name : String):
 	switch_state(next_state_name)
+
+

@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dueqn07kx1bbs"]
+[gd_scene load_steps=13 format=3 uid="uid://dueqn07kx1bbs"]
 
 [ext_resource type="Script" path="res://game/cave/obstacles/bat/bat.gd" id="1_b1u6y"]
 [ext_resource type="Texture2D" uid="uid://qhfbdhrfb4uh" path="res://game/cave/obstacles/bat/bat.svg" id="2_30wav"]
+[ext_resource type="Script" path="res://game/cave/obstacles/bat/states/asleep.gd" id="3_qt4gw"]
+[ext_resource type="Script" path="res://game/cave/obstacles/bat/states/hunt.gd" id="4_hqkn6"]
+[ext_resource type="Script" path="res://game/cave/obstacles/bat/states/alert.gd" id="5_xe0d7"]
+[ext_resource type="Script" path="res://game/cave/obstacles/bat/states/fly.gd" id="6_rh57w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ihqi0"]
 atlas = ExtResource("2_30wav")
@@ -64,14 +68,20 @@ animation = &"asleep"
 [node name="States" type="Node" parent="."]
 
 [node name="Asleep" type="Node" parent="States"]
+script = ExtResource("3_qt4gw")
 
 [node name="Hunt" type="Node" parent="States"]
+script = ExtResource("4_hqkn6")
 
 [node name="Alert" type="Node" parent="States"]
+script = ExtResource("5_xe0d7")
 
 [node name="Fly" type="Node" parent="States"]
+script = ExtResource("6_rh57w")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DetectArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
 shape = SubResource("CircleShape2D_3o0vo")
