@@ -10,7 +10,7 @@ radius = 166.56
 height = 574.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogpq1"]
-size = Vector2(350, 500)
+size = Vector2(350, 505)
 
 [node name="Balloon" type="Node2D"]
 
@@ -35,6 +35,6 @@ position = Vector2(0, -80)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_fu81c")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 500)
+[node name="CollisionShapeCage" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 540)
 shape = SubResource("RectangleShape2D_ogpq1")
