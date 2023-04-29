@@ -8,13 +8,11 @@ class_name Creature
 signal health_changed(befor_demage_health, health)
 signal dead()
 
-var animation_player
+@onready var animation_player = get_node("AnimationPlayer")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	animation_player = get_node("AnimationPlayer")
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
