@@ -38,16 +38,11 @@ func adjust_velocity(wind_speed):
 
 
 func reset_outside_position():
-	if position.x < 50:
-		position.x = 50
-	move_and_slide()
-	if position.y < 50:
-		position.y = 50
-	if position.x > 1800:
-		position.x = 1800
-	move_and_slide()
-	if position.y > 1000:
-		position.y = 1000
+        position.x = max(50, position.x)
+	position.x = min(1800, position.x)
+
+	position.y = max(50, position.y)
+	position.y = min(1000, position.y)
 
 
 func _physics_process(_delta):
