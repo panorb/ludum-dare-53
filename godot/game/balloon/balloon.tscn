@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqrb0owc04n30"]
+
+[ext_resource type="Script" path="res://game/balloon/balloon.gd" id="1_00v08"]
+[ext_resource type="Texture2D" uid="uid://baoqd4onlxlqo" path="res://game/balloon/balloon_cage.svg" id="2_7bswg"]
+[ext_resource type="Texture2D" uid="uid://bh26q30j4picy" path="res://game/balloon/balloon_head.svg" id="2_ilerb"]
+[ext_resource type="Texture2D" uid="uid://b8f182hxp7gas" path="res://game/balloon/fire.svg" id="3_ugihq"]
+
+[node name="Balloon" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_00v08")
+
+[node name="Cage" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_7bswg")
+offset = Vector2(0, 540)
+
+[node name="Fire" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_ugihq")
+offset = Vector2(-2, 210)
+
+[node name="Head" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_ilerb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
