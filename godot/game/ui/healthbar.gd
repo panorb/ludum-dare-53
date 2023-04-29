@@ -1,10 +1,9 @@
 extends Control
 
-@onready var health_bar = $Healthbar
 
-
-func _on_health_updated(health, amount) -> void:
-	health_bar.value = health
+func _on_health_updated(amount) -> void:
+	var health = self.value - amount
+	_tween(health)
 
 
 func _tween(value) -> void:
@@ -14,4 +13,4 @@ func _tween(value) -> void:
 
 # for testing purposes
 func _ready():
-	_tween(100)
+	_on_health_updated(20)
