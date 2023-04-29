@@ -1,6 +1,6 @@
 extends Control
 
-@export var healthy_color: Color = Color.DARK_GREEN
+@export var healthy_color: Color = Color.GREEN
 @export var warning_color: Color = Color.ORANGE
 @export var danger_color: Color = Color.RED
 
@@ -32,6 +32,9 @@ func _tween(value) -> void:
 
 
 # for testing purposes
-func _ready():
+func _on_hero_button_down():
 	_on_health_updated(15)
-	
+
+
+func _on_enemy_button_down():
+	_on_health_updated(15)
