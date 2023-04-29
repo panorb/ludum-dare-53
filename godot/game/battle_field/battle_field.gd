@@ -3,7 +3,7 @@ extends Node2D
 @onready var hero = get_node("Hero")
 @onready var monster = get_node("Dragon")
 
-func wow(card_type, card_value):
+func on_card_received(card_type, card_value):
 	hero.play_attack_animation(card_type, card_value)
 	monster.take_damage(card_value)
 	monster.play_attack_animation(card_type, card_value)
@@ -11,4 +11,4 @@ func wow(card_type, card_value):
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		wow("attack", 15)
+		on_card_received("attack", 15)
