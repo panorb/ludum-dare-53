@@ -30,7 +30,7 @@ func _ready():
 	_set_numbers(value)
 	
 
-func take_damage(damage):
+func take_damage(damage: int) -> int:
 	var old_value = value
 	value -= damage
 	
@@ -38,6 +38,8 @@ func take_damage(damage):
 		value = 1
 		
 	value_changed.emit(old_value, value)
+	
+	return value
 
 func _set_numbers(number: int) -> void:
 	var str_number = str(number)
