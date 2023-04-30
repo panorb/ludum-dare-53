@@ -14,6 +14,7 @@ const PADDING_RIGHT = 3840 - 50
 const PADDING_BOTTOM = 2160 - 200
 
 var card_scene = preload("res://game/cards/card.tscn")
+var containing_card: Card
 
 @onready var cage_center = $Cage/Center
 
@@ -72,4 +73,9 @@ func _on_card_received(card_type: Card.TYPE, card_value: int):
 	card.value = card_value
 	card.set_name("Card")
 	cage_center.add_child(card)
+	containing_card = card
 	
+func take_damage(damage: int):
+	if containing_card:
+		containing_card.take_damage(1)
+		
