@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://odkcfxm2ghvw"]
+
+[ext_resource type="Script" path="res://game/cards/card.gd" id="1_17a0d"]
+[ext_resource type="Texture2D" uid="uid://b6shrnj2bj5xh" path="res://game/cards/attack.svg" id="1_c84tk"]
+
+[sub_resource type="FontVariation" id="FontVariation_ptpba"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pya0l"]
+font = SubResource("FontVariation_ptpba")
+font_size = 90
+font_color = Color(0.682353, 0.364706, 0.25098, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="card" type="Node2D"]
+script = ExtResource("1_17a0d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c84tk")
+
+[node name="LeftUpperContainer" type="AspectRatioContainer" parent="Sprite2D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -267.0
+offset_right = -386.0
+offset_bottom = -535.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftUpperNumber" type="Label" parent="Sprite2D/LeftUpperContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "1"
+label_settings = SubResource("LabelSettings_pya0l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightButtomContainer" type="AspectRatioContainer" parent="Sprite2D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_top = 265.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+size_flags_vertical = 8
+
+[node name="RightButtomNumber" type="Label" parent="Sprite2D/RightButtomContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+text = "1"
+label_settings = SubResource("LabelSettings_pya0l")
+horizontal_alignment = 1
+vertical_alignment = 1
