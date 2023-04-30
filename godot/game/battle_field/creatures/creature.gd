@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Creature
 
-@export var health: int = 10
+@export var health: int = 100
 @export var max_health: int = health
 
 signal health_changed(old_health, health)
