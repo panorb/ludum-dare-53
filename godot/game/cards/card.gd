@@ -2,23 +2,28 @@ extends Node2D
 
 enum TYPE {ATTACK}
 
+var attack_texture = preload("res://game/cards/attack.svg")
+
 signal value_changed(old_value, new_value)
+
+@onready var sprite = get_node("CardSprite") 
+@onready var leftUpperNumber = get_node("%LeftUpperNumber")
+@onready var rightButtomNumber = get_node("%RightButtomNumber")
 
 var type: TYPE:
 	get:
 		return type
 	set(value):
-		self.type = value
-		var texture: CompressedTexture2D = CompressedTexture2D.new()
+		type = value
 		if(value == TYPE.ATTACK):
-			texture.resource_name = "res://game/cards/attack.svg"
+			sprite.texture = attack_texture
 
 var value: int = 10 
 
-@onready var sprite = get_node("Sprite2D") 
+
 
 func _ready():
-	pass
+	type = TYPE.ATTACK
 
 func _set_type(type: TYPE) -> void:
 	self.type = type
