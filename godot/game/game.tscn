@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8bt3hpmja0km"]
+[gd_scene load_steps=9 format=3 uid="uid://8bt3hpmja0km"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_ak8ma"]
 [ext_resource type="PackedScene" uid="uid://dou0y46i5nk8y" path="res://game/battle_field/battle_field.tscn" id="2_kbeyu"]
@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dadh6w74xlxra" path="res://game/card_spawner/card_spawner.tscn" id="4_sv5h8"]
 [ext_resource type="PackedScene" uid="uid://dqrb0owc04n30" path="res://game/balloon/balloon.tscn" id="5_jytc0"]
 [ext_resource type="PackedScene" uid="uid://bf8syl2igprqk" path="res://game/ui/healthbar.tscn" id="6_hh28r"]
-[ext_resource type="Script" path="res://game/ui/healthbar.gd" id="7_lg4s3"]
 [ext_resource type="PackedScene" uid="uid://dr0frejjolbwb" path="res://game/cave_segment/cave_segment.tscn" id="6_uxkq5"]
+[ext_resource type="Script" path="res://game/ui/healthbar.gd" id="7_lg4s3"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ak8ma")
@@ -97,9 +97,10 @@ text = "novh einer"
 
 [node name="CardSpawner" parent="." instance=ExtResource("4_sv5h8")]
 
-[connection signal="button_down" from="UI/Hero Button" to="UI/HBoxContainer/HBoxContainer/VBoxContainer/Healthbar Main" method="_on_hero_button_down"]
-[connection signal="button_down" from="UI/Enemy Button" to="UI/HBoxContainer/HBoxContainer2/VBoxContainer/Healthbar Enemy" method="_on_enemy_button_down"]
 [node name="Balloon" parent="." instance=ExtResource("5_jytc0")]
 position = Vector2(1148, 264)
 
 [node name="CaveSegment" parent="." instance=ExtResource("6_uxkq5")]
+
+[connection signal="button_down" from="UI/Hero Button" to="UI/HBoxContainer/HBoxContainer/VBoxContainer/Healthbar Main" method="_on_hero_button_down"]
+[connection signal="button_down" from="UI/Enemy Button" to="UI/HBoxContainer/HBoxContainer2/VBoxContainer/Healthbar Enemy" method="_on_enemy_button_down"]
