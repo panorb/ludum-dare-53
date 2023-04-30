@@ -1,10 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg8emvpe0x0ca"]
+[gd_scene load_steps=4 format=3 uid="uid://dg8emvpe0x0ca"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_oqyos"]
-[ext_resource type="PackedScene" uid="uid://8bt3hpmja0km" path="res://game/game.tscn" id="2_5682h"]
+[ext_resource type="Script" path="res://playButton.gd" id="2_wkd7u"]
+[ext_resource type="Script" path="res://exit.gd" id="3_s3i6d"]
 
 [node name="World" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_oqyos")
 
-[node name="Game" parent="." instance=ExtResource("2_5682h")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(700, 1000)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "Start Game"
+script = ExtResource("2_wkd7u")
+
+[node name="Exit" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "Exit Game"
+script = ExtResource("3_s3i6d")
