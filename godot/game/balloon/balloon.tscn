@@ -13,6 +13,7 @@ height = 593.333
 size = Vector2(393.333, 713.333)
 
 [node name="Balloon" type="CharacterBody2D" groups=["balloon"]]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_00v08")
 
 [node name="CollisionShapeMain" type="CollisionShape2D" parent="."]

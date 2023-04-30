@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SCREEN_HEIGHT = 1080
-const SCREEN_WIDTH = 1920
+const SCREEN_HEIGHT = 2160
+const SCREEN_WIDTH = 3840
 
 const SAMPLES = 8
 

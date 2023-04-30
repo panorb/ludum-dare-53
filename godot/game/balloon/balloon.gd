@@ -8,8 +8,8 @@ const WIND_POWER_DROP = 1.0
 
 const PADDING_TOP = 200
 const PADDING_LEFT = 50
-const PADDING_RIGHT = 1800 - 50
-const PADDING_BOTTOM = 1000 - 200
+const PADDING_RIGHT = 3840 - 50
+const PADDING_BOTTOM = 2160 - 200
 
 
 func get_wind_speed() -> Vector2:

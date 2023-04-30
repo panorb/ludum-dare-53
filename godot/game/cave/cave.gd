@@ -2,7 +2,7 @@ extends Node2D
 
 const SPEED = 5
 
-const SCREEN_HEIGHT = 1080
+const SCREEN_HEIGHT = 2160
 
 var segment = load("res://game/cave_segment/cave_segment.tscn")
 
