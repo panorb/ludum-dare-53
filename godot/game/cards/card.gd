@@ -25,12 +25,6 @@ var value: int = 10
 func _ready():
 	type = TYPE.ATTACK
 
-func _set_type(type: TYPE) -> void:
-	self.type = type
-
-func _get_type() -> TYPE:
-	return type
-
 func take_damage(damage):
 	var old_value = value
 	value -= damage
