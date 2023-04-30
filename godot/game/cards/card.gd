@@ -9,6 +9,7 @@ signal value_changed(old_value, new_value)
 @onready var sprite = get_node("CardSprite") 
 @onready var leftUpperNumber = get_node("%LeftUpperNumber")
 @onready var rightButtomNumber = get_node("%RightButtomNumber")
+@onready var animation_player = get_node("AnimationPlayer")
 
 var type: TYPE:
 	get:
@@ -31,14 +32,16 @@ func _ready():
 	
 
 func take_damage(damage: int) -> int:
-	var old_value = value
-	value -= damage
-	
-	if value < 1:
-		value = 1
+	if damage > 0 and value > 1:
+		animation_player.play("hurt")
+		var old_value = value
+		value -= damage
 		
-	value_changed.emit(old_value, value)
-	
+		if value < 1:
+			value = 1
+			
+		value_changed.emit(old_value, value)
+		
 	return value
 
 func _set_numbers(number: int) -> void:
