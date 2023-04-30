@@ -97,10 +97,16 @@ text = "novh einer"
 
 [node name="CardSpawner" parent="." instance=ExtResource("4_sv5h8")]
 
-[node name="Balloon" parent="." instance=ExtResource("5_jytc0")]
-position = Vector2(1148, 264)
-
 [node name="CaveSegment" parent="." instance=ExtResource("6_uxkq5")]
+
+[node name="Balloon" parent="." instance=ExtResource("5_jytc0")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="button_down" from="UI/Hero Button" to="UI/HBoxContainer/HBoxContainer/VBoxContainer/Healthbar Main" method="_on_hero_button_down"]
 [connection signal="button_down" from="UI/Enemy Button" to="UI/HBoxContainer/HBoxContainer2/VBoxContainer/Healthbar Enemy" method="_on_enemy_button_down"]

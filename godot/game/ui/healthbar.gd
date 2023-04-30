@@ -7,8 +7,6 @@ extends Control
 @export var warning_amount: float = 0.5
 @export var danger_amount: float = 0.25
 
-@onready var camera = $Camera2D
-
 
 func _on_health_updated(amount) -> void:
 	var health = self.value - amount
