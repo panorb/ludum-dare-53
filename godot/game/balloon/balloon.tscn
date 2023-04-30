@@ -29,6 +29,10 @@ shape = SubResource("RectangleShape2D_jwevs")
 texture = ExtResource("2_7bswg")
 offset = Vector2(0, 540)
 
+[node name="Center" type="Marker2D" parent="Cage"]
+z_index = -1
+position = Vector2(0, 540)
+
 [node name="Fire" type="Sprite2D" parent="."]
 texture = ExtResource("3_ugihq")
 offset = Vector2(-2, 210)
