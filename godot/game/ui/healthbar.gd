@@ -32,9 +32,9 @@ func _tween(value) -> void:
 
 
 # for testing purposes
-func _on_hero_button_down():
+func _on_hero_button_down() -> void:
 	_on_health_updated(15)
 
 
-func _on_enemy_button_down():
+func _on_enemy_button_down() -> void:
 	_on_health_updated(15)
