@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal card_received(card_type: Card.TYPE, card_value: int)
+
 const DRAG = 0.05
 
 const MAX_WIND_SPEED = 300.0
@@ -11,6 +13,9 @@ const PADDING_LEFT = 50
 const PADDING_RIGHT = 1800 - 50
 const PADDING_BOTTOM = 1000 - 200
 
+var card_scene = preload("res://game/cards/card.tscn")
+
+@onready var cage_center = $Cage/Center
 
 func get_wind_speed() -> Vector2:
 	if Input.is_action_pressed("blow_wind"):
@@ -57,3 +62,14 @@ func _physics_process(_delta) -> void:
 	adjust_velocity(wind_speed)
 	move_and_slide()
 	reset_outside_position()
+	
+func _ready():
+	card_received.connect(_on_card_received)
+	
+func _on_card_received(card_type: Card.TYPE, card_value: int):
+	var card: Card = card_scene.instantiate()
+	card.type = card_type
+	card.value = card_value
+	card.set_name("Card")
+	cage_center.add_child(card)
+	
