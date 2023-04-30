@@ -39,11 +39,3 @@ offset = Vector2(-2, 210)
 
 [node name="Head" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("2_ilerb")
-
-[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-visible = false
-position = Vector2(3.33325, 270)
-shape = SubResource("CapsuleShape2D_bwuof")
