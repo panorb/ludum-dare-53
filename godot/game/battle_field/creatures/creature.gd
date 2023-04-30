@@ -31,10 +31,10 @@ func take_damage(damage):
 	else:
 		animation_player.play("hurt")
 
-	emit_signal("health_changed", old_health, health)
+	health_changed.emit(old_health, health)
 
 	if health == 0:
-		emit_signal("dead")
+		dead.emit()
 
 
 func play_attack_animation(card_type: String, card_value: int):
