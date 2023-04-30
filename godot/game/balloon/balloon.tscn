@@ -5,37 +5,37 @@
 [ext_resource type="Texture2D" uid="uid://bh26q30j4picy" path="res://game/balloon/balloon_head.svg" id="2_ilerb"]
 [ext_resource type="Texture2D" uid="uid://b8f182hxp7gas" path="res://game/balloon/fire.svg" id="3_ugihq"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fu81c"]
-radius = 166.56
-height = 574.3
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bwuof"]
+radius = 190.0
+height = 593.333
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogpq1"]
-size = Vector2(350, 505)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwevs"]
+size = Vector2(393.333, 713.333)
 
-[node name="Balloon" type="CharacterBody2D"]
+[node name="Balloon" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(984, 683)
+scale = Vector2(0.3, 0.3)
+collision_mask = 3
 script = ExtResource("1_00v08")
 
-[node name="Cage" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_7bswg")
-offset = Vector2(0, 620)
-
-[node name="Fire" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_ugihq")
-offset = Vector2(-2, 290)
-
-[node name="Head" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_ilerb")
-offset = Vector2(0, 80)
-
-[node name="CollisionShapeHead" type="CollisionShape2D" parent="."]
+[node name="CollisionShapeMain" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(3.33325, -76.667)
 rotation = 1.5708
-scale = Vector2(0.3, 0.3)
-shape = SubResource("CapsuleShape2D_fu81c")
+shape = SubResource("CapsuleShape2D_bwuof")
 
-[node name="CollisionShapeCage" type="CollisionShape2D" parent="."]
-position = Vector2(0, 186)
-scale = Vector2(0.3, 0.3)
-shape = SubResource("RectangleShape2D_ogpq1")
+[node name="CollisionShapeMain2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.000244141, 443.334)
+shape = SubResource("RectangleShape2D_jwevs")
+
+[node name="Cage" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_7bswg")
+offset = Vector2(0, 540)
+
+[node name="Fire" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_ugihq")
+offset = Vector2(-2, 210)
+
+[node name="Head" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_ilerb")

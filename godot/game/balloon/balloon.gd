@@ -6,6 +6,11 @@ const MAX_WIND_SPEED = 300.0
 const MAX_RAW_WIND_POWER = 400.0
 const WIND_POWER_DROP = 1.0
 
+const PADDING_TOP = 200
+const PADDING_LEFT = 50
+const PADDING_RIGHT = 1800 - 50
+const PADDING_BOTTOM = 1000 - 200
+
 
 func get_wind_speed() -> Vector2:
 	if Input.is_action_pressed("blow_wind"):
@@ -38,14 +43,17 @@ func adjust_velocity(wind_speed) -> void:
 
 
 func reset_outside_position() -> void:
-	position.x = clamp(position.x, 50, 1800)
-	position.y = clamp(position.y, 50, 1000)
+	position.x = clamp(position.x, PADDING_LEFT, PADDING_RIGHT)
+	position.y = clamp(position.y, PADDING_TOP, PADDING_BOTTOM)
 
 
 func _physics_process(_delta) -> void:
 	var wind_speed = get_wind_speed()
+	var current_velocity = move_and_collide(velocity * _delta)
+	if current_velocity:
+		velocity = velocity.bounce(current_velocity.get_normal())
+
 	adjust_rotation()
 	adjust_velocity(wind_speed)
 	move_and_slide()
 	reset_outside_position()
-
