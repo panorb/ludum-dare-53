@@ -18,12 +18,17 @@ var type: TYPE:
 		if(value == TYPE.ATTACK):
 			sprite.texture = attack_texture
 
-var value: int = 10 
-
-
+var value: int = 10:
+	get:
+		return value
+	set(new_value):
+		value = new_value
+		_set_numbers(new_value)
 
 func _ready():
 	type = TYPE.ATTACK
+	_set_numbers(value)
+	
 
 func take_damage(damage):
 	var old_value = value
@@ -33,3 +38,8 @@ func take_damage(damage):
 		value = 1
 		
 	value_changed.emit(old_value, value)
+
+func _set_numbers(number: int) -> void:
+	var str_number = str(number)
+	leftUpperNumber.text = str_number
+	rightButtomNumber.text = str_number
