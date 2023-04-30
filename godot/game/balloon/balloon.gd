@@ -17,6 +17,7 @@ var card_scene = preload("res://game/cards/card.tscn")
 var containing_card: Card
 
 @onready var cage_center = $Cage/Center
+@onready var ballon_hit_cave_sound = $ballon_hit_cave_sound
 
 func get_wind_speed() -> Vector2:
 	if Input.is_action_pressed("blow_wind"):
@@ -58,6 +59,7 @@ func _physics_process(_delta) -> void:
 	var current_velocity = move_and_collide(velocity * _delta)
 	if current_velocity:
 		velocity = velocity.bounce(current_velocity.get_normal())
+		ballon_hit_cave_sound.play()
 
 	adjust_rotation()
 	adjust_velocity(wind_speed)

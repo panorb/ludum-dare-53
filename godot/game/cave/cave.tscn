@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqj2lfswoqmh1"]
+[gd_scene load_steps=3 format=3 uid="uid://dqj2lfswoqmh1"]
 
 [ext_resource type="Script" path="res://game/cave/cave.gd" id="1_1se05"]
+[ext_resource type="AudioStream" uid="uid://rav37wekdeod" path="res://game/cave/cave_background.ogg" id="2_ymtgq"]
 
 [node name="Cave" type="Node2D"]
 script = ExtResource("1_1se05")
+
+[node name="BackgroundAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ymtgq")
