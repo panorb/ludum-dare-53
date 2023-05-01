@@ -44,6 +44,15 @@ func create_bat(bat_spawn_position) -> void:
 	instance.position = bat_spawn_position
 	bats.append(instance)
 
+func reset() -> void:
+	for wall in walls:
+		wall.queue_free()
+	for bat in bats:
+		bat.queue_free()
+	walls = []
+	bats = []
+	_ready()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
 	pass
