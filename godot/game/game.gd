@@ -9,6 +9,7 @@ extends Node2D
 var camera_follow : bool = true
 
 func _ready():
+	# await get_tree().idle_frame
 	camera.position.x = balloon.position.x
 	
 	cave.position.y = -Globals.SCREEN_HEIGHT
