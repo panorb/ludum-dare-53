@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cu8y4xsqkkos2"]
+[gd_scene load_steps=17 format=3 uid="uid://cu8y4xsqkkos2"]
 
 [ext_resource type="Texture2D" uid="uid://5kps276t2owe" path="res://game/battle_field/creatures/dragon/dragon_back_wing.svg" id="1_jynh3"]
 [ext_resource type="Texture2D" uid="uid://br5grbupc4dc" path="res://game/battle_field/creatures/dragon/dragon_torso.svg" id="1_n785t"]
@@ -97,6 +97,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_rthm7"]
 resource_name = "attack"
@@ -186,10 +210,38 @@ tracks/6/keys = {
 "values": [0.0, -0.0174533, -0.0174533, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_mf8do"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jrxd1"]
 _data = {
 "RESET": SubResource("Animation_x5hnc"),
-"attack": SubResource("Animation_rthm7")
+"attack": SubResource("Animation_rthm7"),
+"hurt": SubResource("Animation_mf8do")
 }
 
 [node name="Dragon" type="Node2D"]
