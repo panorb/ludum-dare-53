@@ -44,6 +44,7 @@ func _physics_process(delta):
 
 func _on_battle_field_balloon_arrived():
 	camera_follow = false
+	balloon.invincible = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(camera, "position", battle_field.position, 0.8).set_trans(Tween.TRANS_CUBIC)
 	tween.play()
@@ -54,7 +55,6 @@ func _on_card_spawner_spawn_card():
 
 
 func _on_battle_field_balloon_drop():
-	balloon.invincible = true
 	var card : Card = balloon.containing_card
 	if card:
 		battle_field.execute_round(card.type, card.value)
