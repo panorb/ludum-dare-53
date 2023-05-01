@@ -221,6 +221,20 @@ tracks/6/keys = {
 "update": 0,
 "values": [0.0, -0.0174533, -0.0174533, 0.0]
 }
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"do_damage"],
+"method": &"emit_signal"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_mf8do"]
 resource_name = "hurt"
@@ -339,12 +353,13 @@ texture = ExtResource("5_0w2w1")
 position = Vector2(-497, -887)
 emitting = false
 amount = 4
+lifetime = 1.2
 one_shot = true
 explosiveness = 0.65
 texture = ExtResource("7_g3p88")
 direction = Vector2(-45, 0)
-initial_velocity_min = 600.0
-initial_velocity_max = 800.0
+initial_velocity_min = 900.0
+initial_velocity_max = 1100.0
 angular_velocity_curve = SubResource("Curve_se1yh")
 angle_min = 20.0
 angle_max = 30.0
@@ -353,23 +368,25 @@ angle_curve = SubResource("Curve_u7cgs")
 [node name="FireBreath2" type="CPUParticles2D" parent="."]
 position = Vector2(-497, -887)
 emitting = false
+lifetime = 1.2
 one_shot = true
 explosiveness = 0.65
 texture = ExtResource("6_1le8o")
 direction = Vector2(-1, 0)
-initial_velocity_min = 600.0
-initial_velocity_max = 800.0
+initial_velocity_min = 800.0
+initial_velocity_max = 1000.0
 
 [node name="FireBreath3" type="CPUParticles2D" parent="."]
 position = Vector2(-497, -887)
 emitting = false
 amount = 4
+lifetime = 1.2
 one_shot = true
 explosiveness = 0.65
 texture = ExtResource("9_5m0t4")
 direction = Vector2(-45, 0)
-initial_velocity_min = 600.0
-initial_velocity_max = 800.0
+initial_velocity_min = 900.0
+initial_velocity_max = 1100.0
 angular_velocity_curve = SubResource("Curve_se1yh")
 angle_min = 20.0
 angle_max = 30.0

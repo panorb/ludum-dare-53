@@ -20,25 +20,28 @@ texture = ExtResource("3_tnflb")
 position = Vector2(0, 800)
 texture = ExtResource("2_3o7wx")
 
-[node name="Hero" parent="." instance=ExtResource("4_yd1ll")]
-position = Vector2(-871, 598)
-
 [node name="Dragon" parent="." instance=ExtResource("5_cmrjv")]
-position = Vector2(658, 484)
+position = Vector2(520, 484)
+
+[node name="Hero" parent="." instance=ExtResource("4_yd1ll")]
+position = Vector2(-928, 572)
+health = null
 
 [node name="ArrivalArea" type="Area2D" parent="."]
-position = Vector2(0, 1756)
+position = Vector2(0, 1133)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArrivalArea"]
 shape = SubResource("RectangleShape2D_qrv5m")
 
 [node name="DropArea" type="Area2D" parent="."]
-position = Vector2(0, -54)
+position = Vector2(0, 318)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea"]
 shape = SubResource("RectangleShape2D_qrv5m")
 
+[connection signal="do_damage" from="Dragon" to="." method="_on_dragon_do_damage"]
+[connection signal="do_damage" from="Hero" to="." method="_on_hero_do_damage"]
 [connection signal="body_entered" from="ArrivalArea" to="." method="_on_arrival_area_body_entered"]
 [connection signal="body_entered" from="DropArea" to="." method="_on_drop_area_body_entered"]

@@ -5,19 +5,23 @@ signal win
 signal balloon_arrived
 signal balloon_drop
 
-#@onready var hero = get_node("Hero")
-#@onready var monster = get_node("Dragon")
+@onready var hero = get_node("Hero")
+@onready var monster = get_node("Dragon")
 
 
 func _ready():
-	pass
-	#hero.dead.connect(_on_hero_dead)
-	#monster.dead.connect(_on_monster_dead)
+	hero.dead.connect(_on_hero_dead)
+	monster.dead.connect(_on_monster_dead)
 
 
-func execute_card(card : Card):
-	for i in range(card.value):
-		pass
+func execute_card(card_type : Card.TYPE, card_value : int):
+	if card_type == Card.TYPE.ATTACK:
+		hero.play_sword_attack_sequence(card_value)
+	
+	await hero.attack_finished
+	
+	monster.play_attack_animation()
+	await monster.attack_finished
 
 func on_card_received(card_type, card_value):
 	pass
@@ -48,3 +52,11 @@ func _on_arrival_area_body_entered(body):
 func _on_drop_area_body_entered(body):
 	if body.is_in_group("balloon"):
 		emit_signal("balloon_drop")
+
+
+func _on_hero_do_damage():
+	monster.take_damage(1)
+
+
+func _on_dragon_do_damage():
+	hero.take_damage(1)

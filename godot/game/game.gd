@@ -42,5 +42,5 @@ func _on_card_spawner_spawn_card():
 func _on_battle_field_balloon_drop():
 	var card : Card = balloon.containing_card
 	if card:
-		battle_field.execute_card(card)
+		battle_field.execute_card(card.type, card.value)
 		balloon.drop_card()

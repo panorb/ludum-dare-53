@@ -1,3 +1,3 @@
-extends Node2D
+extends Creature
 
 class_name Dragon
