@@ -7,8 +7,10 @@ class_name Creature
 
 signal health_changed(old_health, health)
 signal dead
+signal do_damage
+signal attack_finished
 
-@onready var animation_player = get_node("AnimationPlayer")
+@onready var animation_player : AnimationPlayer = get_node("AnimationPlayer")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +19,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -37,5 +39,7 @@ func take_damage(damage):
 		dead.emit()
 
 
-func play_attack_animation(card_type: String, card_value: int):
+func play_attack_animation():
 	animation_player.play("attack")
+	await animation_player.animation_finished
+	attack_finished.emit()

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 297 187" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-2069.27,-538.325)">
+        <g transform="matrix(1,0,0,1,1484.62,188.62)">
+            <path id="dragon_lower_head" d="M871.114,376.49C877.751,382.631 871.439,383.872 874.19,392.154C888.853,436.309 837.345,493.216 759.238,519.155C681.13,545.094 605.812,530.305 591.149,486.151C589.265,480.479 588.473,474.596 588.69,468.596C632.587,464.783 672.009,444.58 701.216,413.928C712.385,412.045 724.171,408.973 736.136,404.667C770.449,392.32 797.894,372.826 810.858,353.705C824.633,363.289 852.725,375.381 871.114,376.49Z" style="fill:rgb(140,171,161);stroke:rgb(209,177,135);stroke-width:8px;"/>
+        </g>
+    </g>
+</svg>

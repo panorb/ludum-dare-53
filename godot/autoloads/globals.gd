@@ -1,4 +1,15 @@
 extends Node
 
+const MAX_CAVE_ITERATIONS = 2
 
-var player_name = "Rudolph"
+const CAVE_SPEED = 12
+const BALLOON_SPEED = 10
+
+const SCREEN_HEIGHT = 2160
+const SCREEN_WIDTH = 3840
+
+const GUARANTEED_CAVE_WIDTH = 2000
+const MIN_CAVE_THICKNESS = 100
+const CAVE_SYM_VAR = 100
+const CAVE_ASYM_VAR = 300
+const CAVE_HORIZONTAL_VAR = 60
