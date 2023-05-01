@@ -46,7 +46,6 @@ func create_cave_walls(starting_position) -> Vector2:
 			var right_vertical_position = vertical_position + randi_range(-HORIZONTAL_VARIANCE/2, HORIZONTAL_VARIANCE/2)
 			left_column.append(Vector2(left_position, left_vertical_position))
 			right_column.append(Vector2(right_position, right_vertical_position))
-	#cave_segment.add_shape(PackedVector2Array(left_column))
 	segment_left.polygon = PackedVector2Array(left_column)
 	collision_segment_left.polygon = PackedVector2Array(left_column)
 	segment_right.polygon = PackedVector2Array(right_column)
