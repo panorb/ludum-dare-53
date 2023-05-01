@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dadh6w74xlxra"]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://game/card_spawner/card_spawner.gd" id="1_05252"]
 [ext_resource type="Texture2D" uid="uid://ctgxfbfn5iso4" path="res://game/card_spawner/card_spawner_background.svg" id="2_ndkqx"]
 [ext_resource type="Texture2D" uid="uid://bjys70k0ko3s4" path="res://game/card_spawner/card_spawner_inner_wheel.svg" id="3_c5i5m"]
 [ext_resource type="Texture2D" uid="uid://cfsj8fjs2p5jp" path="res://game/card_spawner/card_spawner_core.svg" id="4_f6ax0"]
-[ext_resource type="Texture2D" uid="uid://gjklyh8245hr" path="res://game/card_spawner/card_spawner_effect_ellipse.svg" id="5_urwxv"]
+[ext_resource type="Texture2D" uid="uid://gjklyh8245hr" path="res://shared/effect_ellipse.svg" id="5_urwxv"]
 
 [sub_resource type="Animation" id="Animation_1nxe6"]
 length = 0.001

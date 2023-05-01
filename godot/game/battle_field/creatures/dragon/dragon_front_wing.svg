@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 595 849" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-2483.49,-441.977)">
+        <g transform="matrix(1.99808,0,0,1.99808,-395.683,85.3659)">
+            <g id="dragon_front_wing">
+                <path d="M1484.77,226.817C1517.03,300.642 1522.37,368.282 1487.62,437.538C1517.67,432.082 1565.16,466.739 1624.11,527.766C1592.84,480.047 1588.95,449.471 1620.11,435.254C1641.72,436.731 1654.28,449.958 1660.66,471.231L1614.97,253.086L1484.77,226.817Z" style="fill:rgb(186,145,88);stroke:rgb(75,61,68);stroke-width:4px;"/>
+                <path d="M1442.97,180.479C1503.26,188.783 1561.72,202.145 1615.15,229.305C1673.32,309.878 1710.95,395.858 1736.57,484.997L1718.58,472.148L1698.02,575.582C1700.45,539.569 1690.88,507.305 1665.9,479.858C1666.23,529.643 1658.29,570.34 1641.49,601.28C1642.53,491.508 1629.99,379.984 1577.89,263.354C1549.59,240.754 1516.25,233.274 1477.67,241.511L1442.97,180.479Z" style="fill:rgb(179,165,85);stroke:rgb(75,61,68);stroke-width:4px;"/>
+            </g>
+        </g>
+    </g>
+</svg>
