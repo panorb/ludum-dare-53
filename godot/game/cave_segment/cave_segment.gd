@@ -2,12 +2,11 @@ extends CharacterBody2D
 
 class_name CaveSegment
 
-const SCREEN_HEIGHT = 2160
-const SCREEN_WIDTH = 3840
+var globals = preload("res://autoloads/globals.gd")
 
 const SAMPLES = 8
 
-var EFFECTIVE_WIDTH = 1300
+var EFFECTIVE_WIDTH = 3300
 var MIN_BORDER = 1
 var SYMMETRIC_VARIANCE = 100
 var ASYMMETRIC_VARIANCE = 300
@@ -21,11 +20,12 @@ var HORIZONTAL_VARIANCE = 40
 func _ready() -> void:
 	pass
 
+
 func create_cave_walls(starting_position) -> Vector2:
-	var left_column = [Vector2(0, 0), Vector2(0, SCREEN_HEIGHT), Vector2(starting_position[0], SCREEN_HEIGHT)]
-	var right_column = [Vector2(SCREEN_WIDTH, 0), Vector2(SCREEN_WIDTH, SCREEN_HEIGHT), Vector2(starting_position[1], SCREEN_HEIGHT)]
-	var left_offset_bottom = randi_range(MIN_BORDER, SCREEN_WIDTH - EFFECTIVE_WIDTH - MIN_BORDER)
-	var left_offset_top = randi_range(MIN_BORDER, SCREEN_WIDTH - EFFECTIVE_WIDTH - MIN_BORDER)
+	var left_column = [Vector2(0, 0), Vector2(0, globals.SCREEN_HEIGHT), Vector2(starting_position[0], globals.SCREEN_HEIGHT)]
+	var right_column = [Vector2(globals.SCREEN_WIDTH, 0), Vector2(globals.SCREEN_WIDTH, globals.SCREEN_HEIGHT), Vector2(starting_position[1], globals.SCREEN_HEIGHT)]
+	var left_offset_bottom = randi_range(MIN_BORDER, globals.SCREEN_WIDTH - EFFECTIVE_WIDTH - MIN_BORDER)
+	var left_offset_top = randi_range(MIN_BORDER, globals.SCREEN_WIDTH - EFFECTIVE_WIDTH - MIN_BORDER)
 	
 	var left_position = 0
 	var right_position = 0
@@ -35,8 +35,8 @@ func create_cave_walls(starting_position) -> Vector2:
 		left_position += randi_range(-ASYMMETRIC_VARIANCE/2, ASYMMETRIC_VARIANCE/2)
 		right_position += randi_range(-ASYMMETRIC_VARIANCE/2, ASYMMETRIC_VARIANCE/2) 
 		left_position = max( 1, left_position)
-		right_position = min( SCREEN_WIDTH - 1, right_position)
-		var vertical_position = SCREEN_HEIGHT - (n + 1) * SCREEN_HEIGHT / SAMPLES
+		right_position = min( globals.SCREEN_WIDTH - 1, right_position)
+		var vertical_position = globals.SCREEN_HEIGHT - (n + 1) * globals.SCREEN_HEIGHT / SAMPLES
 		if n == SAMPLES - 1:
 			left_column.append(Vector2(left_position, vertical_position))
 			right_column.append(Vector2(right_position, vertical_position))
