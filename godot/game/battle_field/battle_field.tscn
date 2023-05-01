@@ -22,10 +22,13 @@ texture = ExtResource("2_3o7wx")
 
 [node name="Dragon" parent="." instance=ExtResource("5_cmrjv")]
 position = Vector2(520, 484)
+health = 25
+max_health = 25
 
 [node name="Hero" parent="." instance=ExtResource("4_yd1ll")]
 position = Vector2(-928, 572)
-health = null
+health = 5
+max_health = 5
 
 [node name="ArrivalArea" type="Area2D" parent="."]
 position = Vector2(0, 1133)

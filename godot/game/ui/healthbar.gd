@@ -29,10 +29,9 @@ func _tween(value) -> void:
 	tween.tween_property(self, "value", value, 1.0).set_trans(Tween.TRANS_LINEAR)
 
 
-# for testing purposes
-func _on_hero_button_down() -> void:
-	_on_health_updated(15)
+func _on_dragon_health_changed(old_health, health) -> void:
+	_on_health_updated(health)
 
 
-func _on_enemy_button_down() -> void:
-	_on_health_updated(15)
+func _on_hero_health_changed(old_health, health) -> void:
+	_on_health_updated(health)
