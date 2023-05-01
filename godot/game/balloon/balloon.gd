@@ -4,9 +4,9 @@ signal card_received(card_type: Card.TYPE, card_value: int)
 
 const DRAG = 0.05
 
-const MAX_WIND_SPEED = 300.0
-const MAX_RAW_WIND_POWER = 400.0
-const WIND_POWER_DROP = 1.0
+const MAX_WIND_SPEED = 500.0
+const MAX_RAW_WIND_POWER = 0.02
+const WIND_POWER_DROP = 0.8
 
 const PADDING_TOP = 200
 const PADDING_LEFT = 50
@@ -36,16 +36,16 @@ func get_wind_speed() -> Vector2:
 
 func get_wind_direction() -> Vector2:
 	var wind_origin = get_global_mouse_position()
-	if position.is_equal_approx(wind_origin):
+	if global_position.is_equal_approx(wind_origin):
 		return Vector2(0, 0)
-	return -position.direction_to(wind_origin)
+	return -global_position.direction_to(wind_origin)
 
 
 func get_wind_power() -> float:
 	var wind_origin = get_global_mouse_position()
-	var distance = position.distance_to(wind_origin)
-	var wind_raw_power = pow(1 / (distance), WIND_POWER_DROP)
-	return max(wind_raw_power / MAX_RAW_WIND_POWER, 1)
+	var distance = global_position.distance_to(wind_origin)
+	var wind_raw_power = pow(1.0 / (distance), WIND_POWER_DROP)
+	return min(wind_raw_power / MAX_RAW_WIND_POWER, 1)
 
 
 func adjust_rotation() -> void:
@@ -57,8 +57,8 @@ func adjust_velocity(wind_speed) -> void:
 
 
 func reset_outside_position() -> void:
-	position.x = clamp(position.x, PADDING_LEFT, PADDING_RIGHT)
-	position.y = clamp(position.y, PADDING_TOP, PADDING_BOTTOM)
+	global_position.x = clamp(global_position.x, PADDING_LEFT, PADDING_RIGHT)
+	global_position.y = clamp(global_position.y, PADDING_TOP, PADDING_BOTTOM)
 
 
 func _physics_process(_delta) -> void:
