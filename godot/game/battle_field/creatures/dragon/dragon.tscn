@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cu8y4xsqkkos2"]
+[gd_scene load_steps=18 format=3 uid="uid://cu8y4xsqkkos2"]
 
 [ext_resource type="Texture2D" uid="uid://5kps276t2owe" path="res://game/battle_field/creatures/dragon/dragon_back_wing.svg" id="1_jynh3"]
 [ext_resource type="Texture2D" uid="uid://br5grbupc4dc" path="res://game/battle_field/creatures/dragon/dragon_torso.svg" id="1_n785t"]
@@ -132,6 +132,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Head:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_rthm7"]
@@ -312,10 +324,63 @@ tracks/5/keys = {
 "values": [0.0, 0.0872665, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_s6v2j"]
+resource_name = "die"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(2, 0.466516),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(5, 900)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(0.3, 0.0122591),
+"update": 0,
+"values": [0.0, -0.226893]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head/LowerHead:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.523599]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head/UpperHead:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0802851]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jrxd1"]
 _data = {
 "RESET": SubResource("Animation_x5hnc"),
 "attack": SubResource("Animation_rthm7"),
+"die": SubResource("Animation_s6v2j"),
 "hurt": SubResource("Animation_mf8do")
 }
 
@@ -335,7 +400,6 @@ texture = ExtResource("1_n785t")
 offset = Vector2(0, -408)
 
 [node name="Head" type="Node2D" parent="."]
-position = Vector2(1, 0)
 
 [node name="LowerHead" type="Sprite2D" parent="Head"]
 position = Vector2(-476, -889)
