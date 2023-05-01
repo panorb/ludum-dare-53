@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqrb0owc04n30"]
+[gd_scene load_steps=10 format=3 uid="uid://dqrb0owc04n30"]
 
 [ext_resource type="Script" path="res://game/balloon/balloon.gd" id="1_00v08"]
 [ext_resource type="Texture2D" uid="uid://baoqd4onlxlqo" path="res://game/balloon/balloon_cage.svg" id="2_7bswg"]
 [ext_resource type="Texture2D" uid="uid://bh26q30j4picy" path="res://game/balloon/balloon_head.svg" id="2_ilerb"]
 [ext_resource type="Texture2D" uid="uid://b8f182hxp7gas" path="res://game/balloon/fire.svg" id="3_ugihq"]
 [ext_resource type="AudioStream" uid="uid://0gtbnl61pidq" path="res://game/balloon/balloon_hit_cave_1.wav" id="5_21m5w"]
+[ext_resource type="AudioStream" uid="uid://cjurkr3oa1eon" path="res://game/balloon/balloon_hit_cave_2.wav" id="6_grttb"]
+[ext_resource type="AudioStream" uid="uid://cgpq78w3uu33y" path="res://game/balloon/balloon_hit_cave_3.wav" id="7_fcm70"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bwuof"]
 radius = 190.0
@@ -41,7 +43,7 @@ shape = SubResource("CapsuleShape2D_bwuof")
 position = Vector2(-0.000244141, 443.334)
 shape = SubResource("RectangleShape2D_jwevs")
 
-[node name="BallonHitCaveSound1" type="AudioStreamPlayer" parent="."]
+[node name="BalloonHitCaveSound1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_21m5w")
 volume_db = 12.0
 
@@ -53,13 +55,17 @@ contact_monitor = true
 [node name="CollisionShapeMain3" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(3.33325, -76.667)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_bwuof")
 
 [node name="CollisionShapeMain4" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(-0.000244141, 443.334)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jwevs")
 
-[connection signal="finished" from="BallonHitCaveSound1" to="." method="_on_audio_finished"]
+[node name="BalloonHitCaveSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_grttb")
+
+[node name="BalloonHitCaveSound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_fcm70")
+
+[connection signal="finished" from="BalloonHitCaveSound1" to="." method="_on_audio_finished"]
 [connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_entered"]

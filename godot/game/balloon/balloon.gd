@@ -19,10 +19,10 @@ var last_wall_hit_sound_play_time: float = 0
 
 @onready var cage_center = $Cage/Center
 
-@onready var ballon_hit_cave_sounds = [
-	$BallonHitCaveSound1,
-	$BallonHitCaveSound2,
-	$BallonHitCaveSound3,
+@onready var balloon_hit_cave_sounds = [
+	$BalloonHitCaveSound1,
+	$BalloonHitCaveSound2,
+	$BalloonHitCaveSound3,
 ]
 
 
@@ -82,7 +82,7 @@ func _process(delta: float) -> void:
 		var collider = collision.get_collider()
 		if collider as CaveSegment:
 			if last_wall_hit_sound_play_time <= 0:  # need to find a better solution
-				ballon_hit_cave_sounds[randi() % ballon_hit_cave_sounds.size()].play()
+				balloon_hit_cave_sounds[randi() % balloon_hit_cave_sounds.size()].play()
 				# Set new wait time bettwen 0.7 and 1.3
 				last_wall_hit_sound_play_time = randf_range(0.7, 1.3)
 
