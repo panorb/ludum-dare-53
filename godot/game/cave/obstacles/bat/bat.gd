@@ -4,7 +4,7 @@ extends Node2D
 @onready var hit_area : Area2D = $HitArea 
 var current_state_name := "Asleep"
 
-const MOVEMENT_SPEED = 140
+const MOVEMENT_SPEED = 340
 var movement_direction = Vector2(0, 0)
 
 func  _ready():
