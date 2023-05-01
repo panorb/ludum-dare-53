@@ -41,7 +41,7 @@ func _set_numbers(number: int) -> void:
 	leftUpperNumber.text = str_number
 	rightButtomNumber.text = str_number
 
-func update_type(type: TYPE):
-	match type:
+func update_type(updatedType: TYPE):
+	match updatedType:
 		TYPE.ATTACK:
 			sprite.texture = attack_texture

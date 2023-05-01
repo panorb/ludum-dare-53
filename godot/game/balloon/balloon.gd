@@ -25,6 +25,7 @@ var last_wall_hit_sound_play_time: float = 0
 	$BallonHitCaveSound3,
 ]
 
+
 func get_wind_speed() -> Vector2:
 	if Input.is_action_pressed("blow_wind"):
 		var wind_direction = get_wind_direction()
@@ -71,20 +72,25 @@ func _physics_process(_delta) -> void:
 	move_and_slide()
 	reset_outside_position()
 
+
 func _process(delta: float) -> void:
-	last_wall_hit_sound_play_time = last_wall_hit_sound_play_time - delta if last_wall_hit_sound_play_time > 0 else 0
+	last_wall_hit_sound_play_time = (
+		last_wall_hit_sound_play_time - delta if last_wall_hit_sound_play_time > 0 else 0
+	)
 	var collision = get_last_slide_collision()
 	if collision:
 		var collider = collision.get_collider()
 		if collider as CaveSegment:
-			if last_wall_hit_sound_play_time <= 0: # need to find a better solution
+			if last_wall_hit_sound_play_time <= 0:  # need to find a better solution
 				ballon_hit_cave_sounds[randi() % ballon_hit_cave_sounds.size()].play()
 				# Set new wait time bettwen 0.7 and 1.3
 				last_wall_hit_sound_play_time = randf_range(0.7, 1.3)
 
+
 func _ready():
 	card_received.connect(_on_card_received)
-	
+
+
 func _on_card_received(card_type: Card.TYPE, card_value: int):
 	var card: Card = card_scene.instantiate()
 	card.type = card_type
@@ -92,7 +98,8 @@ func _on_card_received(card_type: Card.TYPE, card_value: int):
 	card.set_name("Card")
 	cage_center.add_child(card)
 	containing_card = card
-	
+
+
 func take_damage(damage: int):
 	if containing_card:
 		containing_card.take_damage(1)
