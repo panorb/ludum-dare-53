@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game/cave_segment/cave_segment.gd" id="1_xxwvy"]
 
-[node name="CaveSegment" type="Area2D"]
+[node name="CaveSegment" type="CharacterBody2D"]
 script = ExtResource("1_xxwvy")
 
 [node name="SegmentLeft" type="Polygon2D" parent="."]

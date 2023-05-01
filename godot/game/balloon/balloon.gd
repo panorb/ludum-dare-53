@@ -70,7 +70,7 @@ func _physics_process(_delta) -> void:
 	adjust_rotation()
 	adjust_velocity(wind_speed)
 	move_and_slide()
-	reset_outside_position()
+	#reset_outside_position()
 
 
 func _process(delta: float) -> void:

@@ -17,15 +17,6 @@ size = Vector2(393.333, 713.333)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_00v08")
 
-[node name="CollisionShapeMain" type="CollisionShape2D" parent="."]
-position = Vector2(3.33325, -76.667)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_bwuof")
-
-[node name="CollisionShapeMain2" type="CollisionShape2D" parent="."]
-position = Vector2(-0.000244141, 443.334)
-shape = SubResource("RectangleShape2D_jwevs")
-
 [node name="Cage" type="Sprite2D" parent="."]
 texture = ExtResource("2_7bswg")
 offset = Vector2(0, 540)
@@ -41,12 +32,34 @@ offset = Vector2(-2, 210)
 [node name="Head" type="Sprite2D" parent="."]
 texture = ExtResource("2_ilerb")
 
+[node name="CollisionShapeMain" type="CollisionShape2D" parent="."]
+position = Vector2(3.33325, -76.667)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bwuof")
+
+[node name="CollisionShapeMain2" type="CollisionShape2D" parent="."]
+position = Vector2(-0.000244141, 443.334)
+shape = SubResource("RectangleShape2D_jwevs")
+
 [node name="BallonHitCaveSound1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_21m5w")
 volume_db = 12.0
 
-[node name="BallonHitCaveSound2" type="AudioStreamPlayer" parent="."]
-volume_db = 12.0
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 100.0
+max_contacts_reported = 5
+contact_monitor = true
 
-[node name="BallonHitCaveSound3" type="AudioStreamPlayer" parent="."]
-volume_db = 12.0
+[node name="CollisionShapeMain3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(3.33325, -76.667)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_bwuof")
+
+[node name="CollisionShapeMain4" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-0.000244141, 443.334)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jwevs")
+
+[connection signal="finished" from="BallonHitCaveSound1" to="." method="_on_audio_finished"]
+[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_entered"]
