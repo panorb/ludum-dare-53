@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name CaveSegment
+
 const SCREEN_HEIGHT = 2160
 const SCREEN_WIDTH = 3840
 
