@@ -96,7 +96,8 @@ func receive_card(card_type: Card.TYPE, card_value: int):
 	containing_card = card
 
 func drop_card():
-	containing_card.queue_free()
+	for child in cage_center.get_children():
+		child.queue_free()
 	
 func take_damage(damage: int, damage_source: Node2D):
 	print_debug("Take dammage: %s" % damage)
