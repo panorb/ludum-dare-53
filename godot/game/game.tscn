@@ -114,4 +114,5 @@ position_smoothing_speed = 25.0
 [connection signal="button_down" from="UI/Enemy Button" to="UI/HBoxContainer/HBoxContainer2/VBoxContainer/Healthbar Enemy" method="_on_enemy_button_down"]
 [connection signal="balloon_arrived" from="BattleField" to="." method="_on_battle_field_balloon_arrived"]
 [connection signal="balloon_drop" from="BattleField" to="." method="_on_battle_field_balloon_drop"]
+[connection signal="round_ended" from="BattleField" to="." method="_on_battle_field_round_ended"]
 [connection signal="spawn_card" from="CardSpawner" to="." method="_on_card_spawner_spawn_card"]

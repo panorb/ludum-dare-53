@@ -4,6 +4,7 @@ signal lose
 signal win
 signal balloon_arrived
 signal balloon_drop
+signal round_ended
 
 @onready var hero = get_node("Hero")
 @onready var monster = get_node("Dragon")
@@ -14,7 +15,7 @@ func _ready():
 	monster.dead.connect(_on_monster_dead)
 
 
-func execute_card(card_type : Card.TYPE, card_value : int):
+func execute_round(card_type : Card.TYPE, card_value : int):
 	if card_type == Card.TYPE.ATTACK:
 		hero.play_sword_attack_sequence(card_value)
 	
@@ -22,6 +23,9 @@ func execute_card(card_type : Card.TYPE, card_value : int):
 	
 	monster.play_attack_animation()
 	await monster.attack_finished
+	
+	if monster.health > 0 and hero.health > 0:
+		round_ended.emit()
 
 func on_card_received(card_type, card_value):
 	pass
