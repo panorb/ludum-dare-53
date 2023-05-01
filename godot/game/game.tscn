@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dqj2lfswoqmh1" path="res://game/cave/cave.tscn" id="3_5wdlg"]
 [ext_resource type="Script" path="res://game/ui/hero_healthbar.gd" id="3_25ctg"]
 [ext_resource type="Script" path="res://game/ui/monster_healthbar.gd" id="4_541rk"]
-[ext_resource type="PackedScene" path="res://game/card_spawner/card_spawner.tscn" id="4_sv5h8"]
+[ext_resource type="PackedScene" uid="uid://dadh6w74xlxra" path="res://game/card_spawner/card_spawner.tscn" id="4_sv5h8"]
 [ext_resource type="PackedScene" uid="uid://dqrb0owc04n30" path="res://game/balloon/balloon.tscn" id="5_jytc0"]
 [ext_resource type="PackedScene" uid="uid://bf8syl2igprqk" path="res://game/ui/healthbar.tscn" id="6_hh28r"]
 [ext_resource type="PackedScene" uid="uid://dr0frejjolbwb" path="res://game/cave_segment/cave_segment.tscn" id="6_uxkq5"]
