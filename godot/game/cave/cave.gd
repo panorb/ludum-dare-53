@@ -6,13 +6,13 @@ var segment = load("res://game/cave_segment/cave_segment.tscn")
 
 @onready var background_audio = $BackgroundAudioStreamPlayer
 
-var starting_position = Vector2(0,globals.SCREEN_WIDTH)
+var starting_position = Vector2(globals.SCREEN_WIDTH / 2 - globals.GUARANTEED_CAVE_WIDTH / 2, globals.SCREEN_WIDTH / 2 + globals.GUARANTEED_CAVE_WIDTH / 2)
 var iterations = 0
 var walls = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in 3:
+	for i in globals.MAX_CAVE_ITERATIONS:
 		new_cave_segment()
 	start_background_music()
 
