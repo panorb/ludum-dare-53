@@ -77,11 +77,13 @@ tint_progress = Color(0, 1, 0, 1)
 script = ExtResource("7_lg4s3")
 
 [node name="Hero Button" type="Button" parent="UI"]
+visible = false
 offset_right = 8.0
 offset_bottom = 8.0
 text = "ein knopf hero"
 
 [node name="Enemy Button" type="Button" parent="UI"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
