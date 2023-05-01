@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game/game.gd" id="1_ak8ma"]
 [ext_resource type="PackedScene" uid="uid://0c34dfxbhfdx" path="res://game/battle_field/battle_field.tscn" id="2_kbeyu"]
 [ext_resource type="PackedScene" uid="uid://dqj2lfswoqmh1" path="res://game/cave/cave.tscn" id="3_5wdlg"]
-[ext_resource type="PackedScene" uid="uid://dadh6w74xlxra" path="res://game/card_spawner/card_spawner.tscn" id="4_sv5h8"]
+[ext_resource type="PackedScene" path="res://game/card_spawner/card_spawner.tscn" id="4_sv5h8"]
 [ext_resource type="PackedScene" uid="uid://dqrb0owc04n30" path="res://game/balloon/balloon.tscn" id="5_jytc0"]
 [ext_resource type="PackedScene" uid="uid://bf8syl2igprqk" path="res://game/ui/healthbar.tscn" id="6_hh28r"]
 [ext_resource type="PackedScene" uid="uid://dr0frejjolbwb" path="res://game/cave_segment/cave_segment.tscn" id="6_uxkq5"]
