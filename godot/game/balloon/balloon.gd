@@ -17,6 +17,8 @@ var card_scene = preload("res://game/cards/card.tscn")
 var containing_card: Card
 var last_wall_hit_sound_play_time: float = 0
 
+var paused : bool = false
+
 @onready var head_sprite = $Head
 @onready var cage_center = $Cage/Center
 
@@ -66,6 +68,10 @@ func reset_outside_position() -> void:
 func _physics_process(delta : float) -> void:
 	velocity.y -= Globals.BALLOON_SPEED
 	var wind_speed = get_wind_speed()
+	
+	if paused:
+		velocity = Vector2.ZERO
+	
 	var current_velocity = move_and_collide(velocity * delta)
 
 	adjust_rotation()
