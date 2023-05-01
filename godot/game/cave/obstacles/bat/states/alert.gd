@@ -9,7 +9,7 @@ func _ready():
 func begin():
 	sprite.play("alert")
 	mark_movement_update(Vector2(0,0))
-	get_tree().create_timer(3.0).timeout.connect(self._on_timeout)
+	get_tree().create_timer(0.8).timeout.connect(self._on_timeout)
 
 func _on_timeout():
 	for body in detect_area.get_overlapping_bodies():

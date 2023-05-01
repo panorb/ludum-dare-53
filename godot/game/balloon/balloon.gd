@@ -105,6 +105,8 @@ func drop_card():
 	for child in cage_center.get_children():
 		child.queue_free()
 	
+	containing_card = null
+	
 func take_damage(damage: int, damage_source: Node2D):
 	print_debug("Take dammage: %s" % damage)
 	if invincible_timer.time_left > 0:
