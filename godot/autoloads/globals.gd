@@ -16,3 +16,6 @@ const CAVE_HORIZONTAL_VAR = 60
 
 const BAT_SPAWN_DISTANCE = 100
 const BAT_RARENESS = 3
+
+const MAX_HEALTH_DRAGON :int = 100 
+const MAX_HEALTH_HERO : int = 100

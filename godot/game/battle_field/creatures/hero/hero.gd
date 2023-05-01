@@ -1,5 +1,9 @@
 extends Creature
 
+func _ready():
+	max_health = Globals.MAX_HEALTH_HERO
+	health = Globals.MAX_HEALTH_HERO
+
 func play_sword_attack_sequence(repeats : int):
 	animation_player.play("sword_receive")
 	await animation_player.animation_finished

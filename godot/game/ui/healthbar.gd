@@ -1,4 +1,6 @@
-extends Control
+extends TextureProgressBar
+
+class_name HealthBar
 
 @export var healthy_color: Color = Color.GREEN
 @export var warning_color: Color = Color.ORANGE
