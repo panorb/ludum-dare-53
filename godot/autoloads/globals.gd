@@ -13,5 +13,3 @@ const MIN_CAVE_THICKNESS = 100
 const CAVE_SYM_VAR = 100
 const CAVE_ASYM_VAR = 300
 const CAVE_HORIZONTAL_VAR = 60
-
-var player_name = "Rudolph"

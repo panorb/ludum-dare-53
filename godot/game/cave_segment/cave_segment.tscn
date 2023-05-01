@@ -6,8 +6,10 @@
 script = ExtResource("1_xxwvy")
 
 [node name="SegmentLeft" type="Polygon2D" parent="."]
+color = Color(0.294118, 0.239216, 0.266667, 1)
 
 [node name="SegmentRight" type="Polygon2D" parent="."]
+color = Color(0.294118, 0.239216, 0.266667, 1)
 
 [node name="CollisionSegmentLeft" type="CollisionPolygon2D" parent="."]
 
