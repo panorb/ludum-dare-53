@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqrb0owc04n30"]
+[gd_scene load_steps=10 format=3 uid="uid://dqrb0owc04n30"]
 
 [ext_resource type="Script" path="res://game/balloon/balloon.gd" id="1_00v08"]
 [ext_resource type="Texture2D" uid="uid://baoqd4onlxlqo" path="res://game/balloon/balloon_cage.svg" id="2_7bswg"]
 [ext_resource type="Texture2D" uid="uid://bh26q30j4picy" path="res://game/balloon/balloon_head.svg" id="2_ilerb"]
 [ext_resource type="Texture2D" uid="uid://b8f182hxp7gas" path="res://game/balloon/fire.svg" id="3_ugihq"]
+[ext_resource type="AudioStream" uid="uid://0gtbnl61pidq" path="res://game/balloon/balloon_hit_cave_1.wav" id="5_21m5w"]
+[ext_resource type="AudioStream" uid="uid://cjurkr3oa1eon" path="res://game/balloon/balloon_hit_cave_2.wav" id="6_grttb"]
+[ext_resource type="AudioStream" uid="uid://cgpq78w3uu33y" path="res://game/balloon/balloon_hit_cave_3.wav" id="7_fcm70"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bwuof"]
 radius = 190.0
@@ -16,6 +19,23 @@ size = Vector2(393.333, 713.333)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_00v08")
 
+[node name="Cage" type="Sprite2D" parent="."]
+texture = ExtResource("2_7bswg")
+offset = Vector2(0, 540)
+
+[node name="Center" type="Marker2D" parent="Cage"]
+z_index = -1
+position = Vector2(0, 540)
+
+[node name="Camera2D" type="Camera2D" parent="Cage"]
+
+[node name="Fire" type="Sprite2D" parent="."]
+texture = ExtResource("3_ugihq")
+offset = Vector2(-2, 210)
+
+[node name="Head" type="Sprite2D" parent="."]
+texture = ExtResource("2_ilerb")
+
 [node name="CollisionShapeMain" type="CollisionShape2D" parent="."]
 position = Vector2(3.33325, -76.667)
 rotation = 1.5708
@@ -25,17 +45,17 @@ shape = SubResource("CapsuleShape2D_bwuof")
 position = Vector2(-0.000244141, 443.334)
 shape = SubResource("RectangleShape2D_jwevs")
 
-[node name="Cage" type="Sprite2D" parent="."]
-texture = ExtResource("2_7bswg")
-offset = Vector2(0, 540)
+[node name="BalloonHitCaveSound1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_21m5w")
+volume_db = 12.0
 
-[node name="Center" type="Marker2D" parent="Cage"]
-z_index = -1
-position = Vector2(0, 540)
+[node name="BalloonHitCaveSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_grttb")
 
-[node name="Fire" type="Sprite2D" parent="."]
-texture = ExtResource("3_ugihq")
-offset = Vector2(-2, 210)
+[node name="BallonHitCaveSound3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_fcm70")
+volume_db = 12.0
 
-[node name="Head" type="Sprite2D" parent="."]
-texture = ExtResource("2_ilerb")
+[node name="InvincibleTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
