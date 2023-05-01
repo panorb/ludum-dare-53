@@ -64,13 +64,10 @@ func reset_outside_position() -> void:
 func _physics_process(_delta) -> void:
 	var wind_speed = get_wind_speed()
 	var current_velocity = move_and_collide(velocity * _delta)
-	if current_velocity:
-		velocity = velocity.bounce(current_velocity.get_normal())
 
 	adjust_rotation()
 	adjust_velocity(wind_speed)
 	move_and_slide()
-	#reset_outside_position()
 
 
 func _process(delta: float) -> void:
