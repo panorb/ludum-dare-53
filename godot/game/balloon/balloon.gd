@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal card_received(card_type: Card.TYPE, card_value: int)
-
 const DRAG = 0.05
 
 const MAX_WIND_SPEED = 500.0
@@ -65,9 +63,10 @@ func reset_outside_position() -> void:
 	global_position.y = clamp(global_position.y, PADDING_TOP, PADDING_BOTTOM)
 
 
-func _physics_process(_delta) -> void:
+func _physics_process(delta : float) -> void:
+	velocity.y -= Globals.BALLOON_SPEED
 	var wind_speed = get_wind_speed()
-	var current_velocity = move_and_collide(velocity * _delta)
+	var current_velocity = move_and_collide(velocity * delta)
 
 	adjust_rotation()
 	adjust_velocity(wind_speed)
@@ -88,18 +87,16 @@ func _process(delta: float) -> void:
 				last_wall_hit_sound_play_time = randf_range(0.7, 1.3)
 	head_sprite.visible = invincible_timer.time_left < 0 or int(invincible_timer.time_left * 1000) % 400 == 0
 
-
-func _ready():
-	card_received.connect(_on_card_received)
-
-
-func _on_card_received(card_type: Card.TYPE, card_value: int):
+func receive_card(card_type: Card.TYPE, card_value: int):
 	var card: Card = card_scene.instantiate()
 	card.type = card_type
 	card.value = card_value
 	card.set_name("Card")
 	cage_center.add_child(card)
 	containing_card = card
+
+func drop_card():
+	containing_card.queue_free()
 	
 func take_damage(damage: int, damage_source: Node2D):
 	print_debug("Take dammage: %s" % damage)

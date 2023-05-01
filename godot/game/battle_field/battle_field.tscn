@@ -1,6 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://0c34dfxbhfdx"]
+[gd_scene load_steps=7 format=3 uid="uid://0c34dfxbhfdx"]
 
 [ext_resource type="Script" path="res://game/battle_field/battle_field.gd" id="1_qkow4"]
+[ext_resource type="Texture2D" uid="uid://cqn8b26y5ggxd" path="res://game/battle_field/battle_field_ground.svg" id="2_3o7wx"]
+[ext_resource type="Texture2D" uid="uid://ddymtkj0h1v1r" path="res://game/battle_field/battle_field_sky.svg" id="3_tnflb"]
+[ext_resource type="PackedScene" uid="uid://dfqrfa60cspgd" path="res://game/battle_field/creatures/hero/hero.tscn" id="4_yd1ll"]
+[ext_resource type="PackedScene" uid="uid://cu8y4xsqkkos2" path="res://game/battle_field/creatures/dragon/dragon.tscn" id="5_cmrjv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrv5m"]
+size = Vector2(10000, 600)
 
 [node name="BattleField" type="Node2D"]
 script = ExtResource("1_qkow4")
+
+[node name="Sky" type="Sprite2D" parent="."]
+scale = Vector2(1.59245, 1.34583)
+texture = ExtResource("3_tnflb")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(0, 800)
+texture = ExtResource("2_3o7wx")
+
+[node name="Hero" parent="." instance=ExtResource("4_yd1ll")]
+position = Vector2(-871, 598)
+
+[node name="Dragon" parent="." instance=ExtResource("5_cmrjv")]
+position = Vector2(658, 484)
+
+[node name="ArrivalArea" type="Area2D" parent="."]
+position = Vector2(0, 1756)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrivalArea"]
+shape = SubResource("RectangleShape2D_qrv5m")
+
+[node name="DropArea" type="Area2D" parent="."]
+position = Vector2(0, -54)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea"]
+shape = SubResource("RectangleShape2D_qrv5m")
+
+[connection signal="body_entered" from="ArrivalArea" to="." method="_on_arrival_area_body_entered"]
+[connection signal="body_entered" from="DropArea" to="." method="_on_drop_area_body_entered"]

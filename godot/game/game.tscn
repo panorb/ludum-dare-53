@@ -94,13 +94,24 @@ text = "novh einer"
 [node name="Cave" parent="." instance=ExtResource("3_5wdlg")]
 
 [node name="BattleField" parent="." instance=ExtResource("2_kbeyu")]
+position = Vector2(1920, 641)
 
 [node name="CardSpawner" parent="." instance=ExtResource("4_sv5h8")]
+position = Vector2(1944, 1869)
 
 [node name="CaveSegment" parent="." instance=ExtResource("6_uxkq5")]
 
 [node name="Balloon" parent="." instance=ExtResource("5_jytc0")]
+z_index = 10
 position = Vector2(1949, 1756)
+
+[node name="GameCamera" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 25.0
 
 [connection signal="button_down" from="UI/Hero Button" to="UI/HBoxContainer/HBoxContainer/VBoxContainer/Healthbar Main" method="_on_hero_button_down"]
 [connection signal="button_down" from="UI/Enemy Button" to="UI/HBoxContainer/HBoxContainer2/VBoxContainer/Healthbar Enemy" method="_on_enemy_button_down"]
+[connection signal="balloon_arrived" from="BattleField" to="." method="_on_battle_field_balloon_arrived"]
+[connection signal="balloon_drop" from="BattleField" to="." method="_on_battle_field_balloon_drop"]
+[connection signal="spawn_card" from="CardSpawner" to="." method="_on_card_spawner_spawn_card"]

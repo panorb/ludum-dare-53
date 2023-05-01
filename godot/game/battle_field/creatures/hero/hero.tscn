@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfqrfa60cspgd"]
+[gd_scene load_steps=13 format=3 uid="uid://dfqrfa60cspgd"]
 
+[ext_resource type="Texture2D" uid="uid://bfmgt8sr13leq" path="res://game/battle_field/creatures/hero/hero_shadow.svg" id="1_16x7x"]
 [ext_resource type="Texture2D" uid="uid://oqoksfk80adc" path="res://game/battle_field/creatures/hero/hero_torso_relaxed.svg" id="1_38kxw"]
 [ext_resource type="Texture2D" uid="uid://dvfd4t5rjxdah" path="res://game/battle_field/creatures/hero/hero_head.svg" id="1_ispg6"]
 [ext_resource type="Texture2D" uid="uid://melw1ar8k1i2" path="res://game/battle_field/creatures/hero/big_sword.svg" id="1_saox3"]
@@ -91,7 +92,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -103,7 +104,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -115,7 +116,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -139,7 +140,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -490,21 +491,28 @@ _data = {
 
 [node name="Hero" type="Node2D"]
 
+[node name="Shadow" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+texture = ExtResource("1_16x7x")
+
 [node name="Sword" type="Node2D" parent="."]
 
 [node name="AISword1" type="Sprite2D" parent="Sword"]
+visible = false
 self_modulate = Color(0.294118, 0.447059, 0.431373, 1)
 position = Vector2(-190, -1000)
 texture = ExtResource("1_saox3")
 offset = Vector2(0, -410)
 
 [node name="AISword2" type="Sprite2D" parent="Sword"]
+visible = false
 self_modulate = Color(0.294118, 0.447059, 0.431373, 1)
 position = Vector2(510, -1000)
 texture = ExtResource("1_saox3")
 offset = Vector2(0, -410)
 
 [node name="EffectEllipse" type="Sprite2D" parent="Sword"]
+visible = false
 position = Vector2(166, -1420)
 scale = Vector2(0.2, 1.4)
 texture = ExtResource("2_h4hiy")
@@ -517,6 +525,7 @@ scale = Vector2(1.30214, 1.45634)
 texture = ExtResource("6_5wh1d")
 
 [node name="Sword" type="Sprite2D" parent="Sword"]
+visible = false
 position = Vector2(160, -580)
 rotation = 1.5708
 texture = ExtResource("1_saox3")
@@ -539,6 +548,7 @@ texture = ExtResource("1_ispg6")
 offset = Vector2(0, -147)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
 libraries = {
 "": SubResource("AnimationLibrary_3hxth")
 }

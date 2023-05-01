@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_CAVE_ITERATIONS = 6
+const MAX_CAVE_ITERATIONS = 2
 
 const CAVE_SPEED = 12
 const BALLOON_SPEED = 10
