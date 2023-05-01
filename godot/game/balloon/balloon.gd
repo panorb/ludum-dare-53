@@ -19,11 +19,12 @@ var last_wall_hit_sound_play_time: float = 0
 
 @onready var cage_center = $Cage/Center
 
-@onready var ballon_hit_cave_sounds = [
-	$BallonHitCaveSound1,
-	$BallonHitCaveSound2,
-	$BallonHitCaveSound3,
+@onready var balloon_hit_cave_sounds = [
+	$BalloonHitCaveSound1,
+	$BalloonHitCaveSound2,
+	$BalloonHitCaveSound3,
 ]
+
 
 func get_wind_speed() -> Vector2:
 	if Input.is_action_pressed("blow_wind"):
@@ -63,28 +64,30 @@ func reset_outside_position() -> void:
 func _physics_process(_delta) -> void:
 	var wind_speed = get_wind_speed()
 	var current_velocity = move_and_collide(velocity * _delta)
-	if current_velocity:
-		velocity = velocity.bounce(current_velocity.get_normal())
 
 	adjust_rotation()
 	adjust_velocity(wind_speed)
 	move_and_slide()
-	reset_outside_position()
+
 
 func _process(delta: float) -> void:
-	last_wall_hit_sound_play_time = last_wall_hit_sound_play_time - delta if last_wall_hit_sound_play_time > 0 else 0
+	last_wall_hit_sound_play_time = (
+		last_wall_hit_sound_play_time - delta if last_wall_hit_sound_play_time > 0 else 0
+	)
 	var collision = get_last_slide_collision()
 	if collision:
 		var collider = collision.get_collider()
 		if collider as CaveSegment:
-			if last_wall_hit_sound_play_time <= 0: # need to find a better solution
-				ballon_hit_cave_sounds[randi() % ballon_hit_cave_sounds.size()].play()
+			if last_wall_hit_sound_play_time <= 0:  # need to find a better solution
+				balloon_hit_cave_sounds[randi() % balloon_hit_cave_sounds.size()].play()
 				# Set new wait time bettwen 0.7 and 1.3
 				last_wall_hit_sound_play_time = randf_range(0.7, 1.3)
 
+
 func _ready():
 	card_received.connect(_on_card_received)
-	
+
+
 func _on_card_received(card_type: Card.TYPE, card_value: int):
 	var card: Card = card_scene.instantiate()
 	card.type = card_type
@@ -92,7 +95,8 @@ func _on_card_received(card_type: Card.TYPE, card_value: int):
 	card.set_name("Card")
 	cage_center.add_child(card)
 	containing_card = card
-	
+
+
 func take_damage(damage: int):
 	if containing_card:
 		containing_card.take_damage(1)

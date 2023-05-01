@@ -11,6 +11,7 @@ const SAMPLES = 8
 @onready var segment_right = get_node("SegmentRight")
 @onready var collision_segment_right = get_node("CollisionSegmentRight")
 
+
 func _ready() -> void:
 	pass
 
