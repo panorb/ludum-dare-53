@@ -17,6 +17,8 @@ size = Vector2(393.333, 713.333)
 
 [node name="Balloon" type="CharacterBody2D" groups=["balloon"]]
 scale = Vector2(0.4, 0.4)
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_00v08")
 
 [node name="Cage" type="Sprite2D" parent="."]

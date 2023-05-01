@@ -11,7 +11,7 @@ const PADDING_LEFT = 50
 const PADDING_RIGHT = 3840 - 50
 const PADDING_BOTTOM = 2160 - 200
 
-const DAMAGE_BUMP_STRENGTH = 200
+const DAMAGE_BUMP_STRENGTH = 500
 
 var card_scene = preload("res://game/cards/card.tscn")
 var containing_card: Card
@@ -27,6 +27,8 @@ var paused : bool = false
 	$BalloonHitCaveSound2,
 	$BalloonHitCaveSound3,
 ]
+
+var invincible : bool = false
 @onready var invincible_timer = $InvincibleTimer
 
 
@@ -91,7 +93,7 @@ func _process(delta: float) -> void:
 				balloon_hit_cave_sounds[randi() % balloon_hit_cave_sounds.size()].play()
 				# Set new wait time bettwen 0.7 and 1.3
 				last_wall_hit_sound_play_time = randf_range(0.7, 1.3)
-	head_sprite.visible = invincible_timer.time_left < 0 or int(invincible_timer.time_left * 1000) % 400 == 0
+	visible = invincible_timer.time_left <= 0 or int(invincible_timer.time_left / 0.15) % 2 == 0
 
 func receive_card(card_type: Card.TYPE, card_value: int):
 	var card: Card = card_scene.instantiate()
@@ -108,12 +110,10 @@ func drop_card():
 	containing_card = null
 	
 func take_damage(damage: int, damage_source: Node2D):
-	print_debug("Take dammage: %s" % damage)
-	if invincible_timer.time_left > 0:
-		print_debug("Ballon is invincible")
+	if invincible or invincible_timer.time_left > 0:
 		return
-	else:
-		invincible_timer.start()
+	
+	invincible_timer.start()
 	
 	var bump_vector = (global_position - damage_source.global_position).normalized()
 	velocity += bump_vector * DAMAGE_BUMP_STRENGTH * damage

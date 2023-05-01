@@ -10,9 +10,7 @@ class_name HealthBar
 @export var danger_amount: float = 0.25
 
 
-func _on_health_updated(amount) -> void:
-	var health = self.value - amount
-
+func _on_health_updated(old_health, health) -> void:
 	_tween(health)
 	_assign_color(health)
 
@@ -32,8 +30,8 @@ func _tween(value) -> void:
 
 
 func _on_dragon_health_changed(old_health, health) -> void:
-	_on_health_updated(health)
+	_on_health_updated(old_health, health)
 
 
 func _on_hero_health_changed(old_health, health) -> void:
-	_on_health_updated(health)
+	_on_health_updated(old_health, health)

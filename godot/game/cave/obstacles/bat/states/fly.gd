@@ -5,7 +5,7 @@ extends State
 
 func begin():
 	sprite.play("fly")
-	get_tree().create_timer(2.0).timeout.connect(self._on_timeout)
+	get_tree().create_timer(3.2).timeout.connect(self._on_timeout)
 
 func _on_timeout():
 	for body in detect_area.get_overlapping_bodies():

@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" path="res://game/cave_segment/cave_segment.gd" id="1_xxwvy"]
 
-[node name="CaveSegment" type="CharacterBody2D"]
-collision_layer = 0
+[node name="CaveSegment" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_xxwvy")
 
 [node name="SegmentLeft" type="Polygon2D" parent="."]

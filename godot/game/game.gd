@@ -54,6 +54,7 @@ func _on_card_spawner_spawn_card():
 
 
 func _on_battle_field_balloon_drop():
+	balloon.invincible = true
 	var card : Card = balloon.containing_card
 	if card:
 		battle_field.execute_round(card.type, card.value)
@@ -66,8 +67,9 @@ func _on_battle_field_round_ended():
 	balloon.position = $SpawnPoint.position
 	tween.tween_property(camera, "position", $SpawnPoint.position, 1.2).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
-	# cave.reset_cave()
+	cave.reset()
 	camera_follow = true
 	balloon.paused = false
+	balloon.invincible = false
 	card_spawner.play_spawn_animation()
 	

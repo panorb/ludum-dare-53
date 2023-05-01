@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dohodexm67ckc"]
+
+[ext_resource type="Shader" path="res://game/ui/wave.gdshader" id="1_6fbx3"]
+[ext_resource type="Script" path="res://game/ui/ending_screen.gd" id="1_j8iif"]
+[ext_resource type="FontFile" uid="uid://btrb0mtp7to0s" path="res://shared/jelle-bold.ttf" id="2_plafu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vvagm"]
+shader = ExtResource("1_6fbx3")
+shader_parameter/height = 5.0
+shader_parameter/curve = 0.3
+shader_parameter/speed = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_e6b1h"]
+font_size = 120
+
+[node name="EndingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j8iif")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.294118, 0.239216, 0.266667, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_vvagm")
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_plafu")
+text = "The Dragon was slain. The kingdom was saved."
+label_settings = SubResource("LabelSettings_e6b1h")
+horizontal_alignment = 1
