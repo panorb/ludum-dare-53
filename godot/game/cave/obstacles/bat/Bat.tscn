@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dueqn07kx1bbs"]
+[gd_scene load_steps=14 format=3 uid="uid://dueqn07kx1bbs"]
 
 [ext_resource type="Script" path="res://game/cave/obstacles/bat/bat.gd" id="1_b1u6y"]
 [ext_resource type="Texture2D" uid="uid://qhfbdhrfb4uh" path="res://game/cave/obstacles/bat/bat.svg" id="2_30wav"]
@@ -56,6 +56,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3o0vo"]
 radius = 500.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjysw"]
+radius = 20.0
+height = 100.0
+
 [node name="Bat" type="Node2D"]
 script = ExtResource("1_b1u6y")
 
@@ -85,3 +89,9 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
 shape = SubResource("CircleShape2D_3o0vo")
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(-13, -17)
+shape = SubResource("CapsuleShape2D_yjysw")

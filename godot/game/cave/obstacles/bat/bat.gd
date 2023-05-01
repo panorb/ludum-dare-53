@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var states_container : Node = get_node("States")
+@onready var hit_area : Area2D = $HitArea 
 var current_state_name := "Asleep"
 
 const MOVEMENT_SPEED = 140
@@ -12,6 +13,11 @@ func  _ready():
 		state.update_movement_direction.connect(self._on_update_movement_direction)
 	
 	switch_state(current_state_name)
+
+func _physics_process(delta):
+	for body in hit_area.get_overlapping_bodies():
+		if body.is_in_group('balloon'):
+			body.take_damage(1, self)
 
 func _process(delta):
 	position += MOVEMENT_SPEED * delta * movement_direction
@@ -29,4 +35,3 @@ func _on_state_finish(next_state_name : String):
 
 func _on_update_movement_direction(movement_direction : Vector2):
 	self.movement_direction = movement_direction
-
