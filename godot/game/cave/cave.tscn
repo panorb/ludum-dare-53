@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqj2lfswoqmh1"]
+[gd_scene load_steps=4 format=3 uid="uid://dqj2lfswoqmh1"]
 
 [ext_resource type="Script" path="res://game/cave/cave.gd" id="1_1se05"]
-[ext_resource type="AudioStream" path="res://game/cave/cave_background.ogg" id="2_ymtgq"]
+[ext_resource type="AudioStream" uid="uid://rav37wekdeod" path="res://game/cave/cave_background.ogg" id="2_ymtgq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no42q"]
+size = Vector2(3819, 102)
 
 [node name="Cave" type="Node2D"]
 script = ExtResource("1_1se05")
 
 [node name="BackgroundAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ymtgq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(1927.5, 2104)
+shape = SubResource("RectangleShape2D_no42q")

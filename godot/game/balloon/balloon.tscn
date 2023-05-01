@@ -27,6 +27,8 @@ offset = Vector2(0, 540)
 z_index = -1
 position = Vector2(0, 540)
 
+[node name="Camera2D" type="Camera2D" parent="Cage"]
+
 [node name="Fire" type="Sprite2D" parent="."]
 texture = ExtResource("3_ugihq")
 offset = Vector2(-2, 210)
@@ -47,25 +49,8 @@ shape = SubResource("RectangleShape2D_jwevs")
 stream = ExtResource("5_21m5w")
 volume_db = 12.0
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-mass = 100.0
-max_contacts_reported = 5
-contact_monitor = true
-
-[node name="CollisionShapeMain3" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(3.33325, -76.667)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_bwuof")
-
-[node name="CollisionShapeMain4" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(-0.000244141, 443.334)
-shape = SubResource("RectangleShape2D_jwevs")
-
 [node name="BalloonHitCaveSound2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_grttb")
 
 [node name="BalloonHitCaveSound3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_fcm70")
-
-[connection signal="finished" from="BalloonHitCaveSound1" to="." method="_on_audio_finished"]
-[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_entered"]
