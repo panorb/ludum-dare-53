@@ -104,8 +104,6 @@ position = Vector2(1944, 1869)
 [node name="Balloon" parent="." instance=ExtResource("5_jytc0")]
 z_index = 10
 position = Vector2(1949, 1756)
-[connection signal="button_down" from="UI/Hero Button" to="UI/HBoxContainer/HBoxContainer/VBoxContainer/Healthbar Main" method="_on_hero_button_down"]
-[connection signal="button_down" from="UI/Enemy Button" to="UI/HBoxContainer/HBoxContainer2/VBoxContainer/Healthbar Enemy" method="_on_enemy_button_down"]
 
 [node name="GameCamera" type="Camera2D" parent="."]
 process_callback = 0

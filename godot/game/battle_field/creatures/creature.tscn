@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://btdj1js5dgurd"]
 
 [ext_resource type="Script" path="res://game/battle_field/creatures/creature.gd" id="1_j1147"]
-[ext_resource type="Texture2D" uid="uid://diqmkdcqhvjfc" path="res://icon.svg" id="2_k14sy"]
+[ext_resource type="Texture2D" uid="uid://c7mdduhw4vso8" path="res://icon.svg" id="2_k14sy"]
 
 [sub_resource type="Animation" id="Animation_3355t"]
 length = 0.001
