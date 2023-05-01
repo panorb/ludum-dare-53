@@ -62,8 +62,12 @@ func _on_battle_field_balloon_drop():
 
 func _on_battle_field_round_ended():
 	var tween = get_tree().create_tween()
+	balloon.paused = true
 	balloon.position = $SpawnPoint.position
 	tween.tween_property(camera, "position", $SpawnPoint.position, 1.2).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
 	# cave.reset_cave()
+	camera_follow = true
+	balloon.paused = false
+	card_spawner.play_spawn_animation()
 	
