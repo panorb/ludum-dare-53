@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm65ns30xxc7x"]
+
+[ext_resource type="Texture2D" uid="uid://flblxm8p8ymp" path="res://game/cave/obstacles/tree1/tree1_hole.svg" id="1_fvavs"]
+[ext_resource type="Script" path="res://game/cave/obstacles/tree1/tree1.gd" id="1_nir6d"]
+[ext_resource type="Texture2D" uid="uid://cry2kvjwc1f5" path="res://game/cave/obstacles/tree1/tree1_trunk.svg" id="2_jcxy2"]
+[ext_resource type="Texture2D" uid="uid://y7laqop4mmxh" path="res://game/cave/obstacles/tree1/tree1_leaves.svg" id="3_gkm8k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1c128"]
+radius = 135.0
+
+[node name="tree1" type="Node2D"]
+script = ExtResource("1_nir6d")
+
+[node name="tree_hole" type="Sprite2D" parent="."]
+position = Vector2(180.5, 240)
+texture = ExtResource("1_fvavs")
+
+[node name="tree_trunk" type="Sprite2D" parent="."]
+position = Vector2(-6.5, -8)
+texture = ExtResource("2_jcxy2")
+
+[node name="tree_leaves" type="Sprite2D" parent="."]
+position = Vector2(-6.5, -270)
+texture = ExtResource("3_gkm8k")
+
+[node name="HitArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(180.5, 240)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(-418, -596)
+shape = SubResource("CircleShape2D_1c128")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(44, -479)
+shape = SubResource("CircleShape2D_1c128")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(-150, -427)
+shape = SubResource("CircleShape2D_1c128")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(-247, -580)
+shape = SubResource("CircleShape2D_1c128")
