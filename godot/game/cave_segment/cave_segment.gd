@@ -11,6 +11,7 @@ const SAMPLES = 8
 @onready var segment_right = get_node("SegmentRight")
 @onready var collision_segment_right = get_node("CollisionSegmentRight")
 
+var bat_spawn_positions = []
 
 func _ready() -> void:
 	pass
@@ -70,6 +71,8 @@ func create_cave_walls(starting_position) -> Vector2:
 		y_positions = add_horizontal_offsets(y_positions, samplenumber)
 		left_column.append(Vector2(x_positions[0], y_positions[0]))
 		right_column.append(Vector2(x_positions[1], y_positions[1]))
+		bat_spawn_positions.append(Vector2(x_positions[0] + globals.BAT_SPAWN_DISTANCE, y_positions[0]))
+		bat_spawn_positions.append(Vector2(x_positions[1] - globals.BAT_SPAWN_DISTANCE, y_positions[1]))
 	
 	segment_left.polygon = PackedVector2Array(left_column)
 	collision_segment_left.polygon = PackedVector2Array(left_column)
