@@ -1,43 +1,279 @@
-[gd_scene load_steps=7 format=3 uid="uid://cu8y4xsqkkos2"]
+[gd_scene load_steps=15 format=3 uid="uid://cu8y4xsqkkos2"]
 
 [ext_resource type="Texture2D" uid="uid://5kps276t2owe" path="res://game/battle_field/creatures/dragon/dragon_back_wing.svg" id="1_jynh3"]
 [ext_resource type="Texture2D" uid="uid://br5grbupc4dc" path="res://game/battle_field/creatures/dragon/dragon_torso.svg" id="1_n785t"]
+[ext_resource type="Script" path="res://game/battle_field/creatures/dragon/dragon.gd" id="1_vv02n"]
 [ext_resource type="Texture2D" uid="uid://ddcv7tdpi4286" path="res://game/battle_field/creatures/dragon/dragon_lower_head.svg" id="2_b06l3"]
 [ext_resource type="Texture2D" uid="uid://b8tpm7rxkc775" path="res://game/battle_field/creatures/dragon/dragon_upper_head.svg" id="3_wp7e1"]
 [ext_resource type="Texture2D" uid="uid://wtvxo0jc15p1" path="res://game/battle_field/creatures/dragon/dragon_front_wing.svg" id="5_0w2w1"]
 [ext_resource type="Texture2D" uid="uid://bhoc08haug6s1" path="res://game/battle_field/creatures/dragon/fire_breath/fire_breah2.svg" id="6_1le8o"]
+[ext_resource type="Texture2D" uid="uid://bie5nqma5msvr" path="res://game/battle_field/creatures/dragon/fire_breath/fire_breath3.svg" id="7_g3p88"]
+[ext_resource type="Texture2D" uid="uid://buhd71a0e6ywr" path="res://game/battle_field/creatures/dragon/fire_breath/fire_breath1.svg" id="9_5m0t4"]
+
+[sub_resource type="Curve" id="Curve_se1yh"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_u7cgs"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 6.54544), 0.0, -46.1073, 0, 1, Vector2(0.99373, -39.2727), -46.1073, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_rthm7"]
+resource_name = "attack"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.6, 0.9, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0174533, -0.00872665, -0.00872665, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/LowerHead:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.6, 0.9, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.523599, -0.523599, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head/UpperHead:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.6, 0.9, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.349066, 0.349066, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FireBreath2:emitting")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.65),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FireBreath3:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FireBreath1:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Torso:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.9, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0174533, -0.0174533, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_x5hnc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.00872665]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/LowerHead:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.523599]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head/UpperHead:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.319395]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FireBreath2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FireBreath3:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FireBreath1:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Torso:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.00523599]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jrxd1"]
+_data = {
+"RESET": SubResource("Animation_x5hnc"),
+"attack": SubResource("Animation_rthm7")
+}
 
 [node name="Dragon" type="Node2D"]
+script = ExtResource("1_vv02n")
 
 [node name="BackWing" type="Sprite2D" parent="."]
 position = Vector2(32, -623)
 texture = ExtResource("1_jynh3")
 
 [node name="Torso" type="Sprite2D" parent="."]
+rotation = -0.00523599
 texture = ExtResource("1_n785t")
 offset = Vector2(0, -408)
 
 [node name="Head" type="Node2D" parent="."]
+position = Vector2(1, 0)
+rotation = -0.00872665
 
 [node name="LowerHead" type="Sprite2D" parent="Head"]
 position = Vector2(-476, -889)
+rotation = -0.523599
 texture = ExtResource("2_b06l3")
 
 [node name="UpperHead" type="Sprite2D" parent="Head"]
 position = Vector2(-502, -1006)
+rotation = 0.319395
 texture = ExtResource("3_wp7e1")
 
 [node name="FrontWing" type="Sprite2D" parent="."]
 position = Vector2(121, -591)
 texture = ExtResource("5_0w2w1")
 
+[node name="FireBreath1" type="CPUParticles2D" parent="."]
+position = Vector2(-497, -887)
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 0.65
+texture = ExtResource("7_g3p88")
+direction = Vector2(-45, 0)
+initial_velocity_min = 600.0
+initial_velocity_max = 800.0
+angular_velocity_curve = SubResource("Curve_se1yh")
+angle_min = 20.0
+angle_max = 30.0
+angle_curve = SubResource("Curve_u7cgs")
+
 [node name="FireBreath2" type="CPUParticles2D" parent="."]
 position = Vector2(-497, -887)
 emitting = false
-amount = 16
 one_shot = true
-explosiveness = 0.5
+explosiveness = 0.65
 texture = ExtResource("6_1le8o")
 direction = Vector2(-1, 0)
 initial_velocity_min = 600.0
 initial_velocity_max = 800.0
+
+[node name="FireBreath3" type="CPUParticles2D" parent="."]
+position = Vector2(-497, -887)
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 0.65
+texture = ExtResource("9_5m0t4")
+direction = Vector2(-45, 0)
+initial_velocity_min = 600.0
+initial_velocity_max = 800.0
+angular_velocity_curve = SubResource("Curve_se1yh")
+angle_min = 20.0
+angle_max = 30.0
+angle_curve = SubResource("Curve_u7cgs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jrxd1")
+}
