@@ -6,6 +6,8 @@ const SCREEN_HEIGHT = 2160
 
 var segment = load("res://game/cave_segment/cave_segment.tscn")
 
+@onready var background_audio = $BackgroundAudioStreamPlayer
+
 var starting_position = Vector2(0,0)
 var walls = []
 
@@ -13,6 +15,7 @@ var walls = []
 func _ready() -> void:
 	for i in 3:
 		new_cave_segment()
+	start_background_music()
 
 func new_cave_segment() -> void:
 	var instance = segment.instantiate()
@@ -37,3 +40,6 @@ func _process(_delta) -> void:
 	if walls[1].position.y > 0:
 		redraw_cave_segment()
 		walls.append(walls.pop_front())
+
+func start_background_music():
+	background_audio.play()

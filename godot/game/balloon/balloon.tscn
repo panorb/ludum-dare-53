@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqrb0owc04n30"]
+[gd_scene load_steps=10 format=3 uid="uid://dqrb0owc04n30"]
 
 [ext_resource type="Script" path="res://game/balloon/balloon.gd" id="1_00v08"]
 [ext_resource type="Texture2D" uid="uid://baoqd4onlxlqo" path="res://game/balloon/balloon_cage.svg" id="2_7bswg"]
 [ext_resource type="Texture2D" uid="uid://bh26q30j4picy" path="res://game/balloon/balloon_head.svg" id="2_ilerb"]
 [ext_resource type="Texture2D" uid="uid://b8f182hxp7gas" path="res://game/balloon/fire.svg" id="3_ugihq"]
+[ext_resource type="AudioStream" path="res://game/balloon/balloon_hit_cave_1.wav" id="5_21m5w"]
+[ext_resource type="AudioStream" uid="uid://cjurkr3oa1eon" path="res://game/balloon/balloon_hit_cave_2.wav" id="6_t4kck"]
+[ext_resource type="AudioStream" uid="uid://cgpq78w3uu33y" path="res://game/balloon/balloon_hit_cave_3.wav" id="7_aafdx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bwuof"]
 radius = 190.0
@@ -39,3 +42,15 @@ offset = Vector2(-2, 210)
 
 [node name="Head" type="Sprite2D" parent="."]
 texture = ExtResource("2_ilerb")
+
+[node name="BallonHitCaveSound1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_21m5w")
+volume_db = 12.0
+
+[node name="BallonHitCaveSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_t4kck")
+volume_db = 12.0
+
+[node name="BallonHitCaveSound3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_aafdx")
+volume_db = 12.0
