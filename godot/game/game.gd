@@ -5,11 +5,17 @@ extends Node2D
 @onready var battle_field = get_node('BattleField')
 @onready var balloon : Node2D = get_node('Balloon')
 @onready var camera : Camera2D = get_node("GameCamera")
+@onready var hero_health_bar : TextureProgressBar = $"UI/HBoxContainer/HBoxContainer/VBoxContainer/Healthbar Main"
+@onready var monster_health_bar : TextureProgressBar = $"UI/HBoxContainer/HBoxContainer2/VBoxContainer/Healthbar Enemy" 
 
 var camera_follow : bool = true
 
 func _ready():
 	# await get_tree().idle_frame
+
+	battle_field.hero.health_changed.connect(hero_health_bar._on_hero_health_changed)
+	battle_field.monster.health_changed.connect(monster_health_bar._on_dragon_health_changed)
+
 	camera.position.x = balloon.position.x
 	
 	cave.position.y = -Globals.SCREEN_HEIGHT
