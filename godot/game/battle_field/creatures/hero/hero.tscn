@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dfqrfa60cspgd"]
+[gd_scene load_steps=19 format=3 uid="uid://dfqrfa60cspgd"]
 
 [ext_resource type="Texture2D" uid="uid://bfmgt8sr13leq" path="res://game/battle_field/creatures/hero/hero_shadow.svg" id="1_16x7x"]
 [ext_resource type="Texture2D" uid="uid://oqoksfk80adc" path="res://game/battle_field/creatures/hero/hero_torso_relaxed.svg" id="1_38kxw"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cnpoueufd5vmg" path="res://game/battle_field/creatures/hero/hero_torso_grip.svg" id="1_xr6nl"]
 [ext_resource type="Texture2D" uid="uid://gjklyh8245hr" path="res://shared/effect_ellipse.svg" id="2_h4hiy"]
 [ext_resource type="Texture2D" uid="uid://cdp4c3q7etk60" path="res://shared/slash_effect.svg" id="6_5wh1d"]
+[ext_resource type="AudioStream" uid="uid://b8ih1nbw1lnkv" path="res://game/battle_field/creatures/hero/sword_strike1.wav" id="9_5v2ey"]
+[ext_resource type="AudioStream" uid="uid://bfn1rvitoj5ek" path="res://game/battle_field/creatures/hero/sword_strike3.wav" id="10_jrhnt"]
+[ext_resource type="AudioStream" uid="uid://d11jf6eyc2bv7" path="res://game/battle_field/creatures/hero/sword_strike2.wav" id="10_nq6sw"]
 
 [sub_resource type="Animation" id="Animation_d5fjs"]
 length = 0.001
@@ -368,9 +371,12 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.12),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.12),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"play_strike_sound"
+}, {
 "args": [&"do_damage"],
 "method": &"emit_signal"
 }]
@@ -687,3 +693,12 @@ autoplay = "RESET"
 libraries = {
 "": SubResource("AnimationLibrary_3hxth")
 }
+
+[node name="SoundStrike1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_5v2ey")
+
+[node name="SoundStrike2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_nq6sw")
+
+[node name="SoundStrike3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_jrhnt")

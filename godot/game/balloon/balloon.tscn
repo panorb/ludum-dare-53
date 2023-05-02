@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqrb0owc04n30"]
+[gd_scene load_steps=14 format=3 uid="uid://dqrb0owc04n30"]
 
 [ext_resource type="Script" path="res://game/balloon/balloon.gd" id="1_00v08"]
 [ext_resource type="Texture2D" uid="uid://baoqd4onlxlqo" path="res://game/balloon/balloon_cage.svg" id="2_7bswg"]
@@ -7,6 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://0gtbnl61pidq" path="res://game/balloon/balloon_hit_cave_1.wav" id="5_21m5w"]
 [ext_resource type="AudioStream" uid="uid://cjurkr3oa1eon" path="res://game/balloon/balloon_hit_cave_2.wav" id="6_grttb"]
 [ext_resource type="AudioStream" uid="uid://cgpq78w3uu33y" path="res://game/balloon/balloon_hit_cave_3.wav" id="7_fcm70"]
+[ext_resource type="AudioStream" uid="uid://b7dsi6mdfo640" path="res://game/balloon/balloon_wind1.wav" id="8_53fyb"]
+[ext_resource type="AudioStream" uid="uid://dbkmdf1snu1y4" path="res://game/balloon/balloon_wind2.wav" id="9_msuew"]
+[ext_resource type="AudioStream" uid="uid://bsyu6fyo7kybr" path="res://game/balloon/balloon_wind3.wav" id="10_eey7m"]
+[ext_resource type="AudioStream" uid="uid://cwtno57x16r1h" path="res://game/balloon/balloon_wind4.wav" id="11_wvxw2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bwuof"]
 radius = 190.0
@@ -55,6 +59,18 @@ stream = ExtResource("6_grttb")
 [node name="BalloonHitCaveSound3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_fcm70")
 volume_db = 12.0
+
+[node name="BalloonWindSound1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_53fyb")
+
+[node name="BalloonWindSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_msuew")
+
+[node name="BalloonWindSound3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_eey7m")
+
+[node name="BalloonWindSound4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_wvxw2")
 
 [node name="InvincibleTimer" type="Timer" parent="."]
 wait_time = 2.0

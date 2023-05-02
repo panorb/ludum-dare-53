@@ -34,6 +34,7 @@ var invincible : bool = false
 
 func get_wind_speed() -> Vector2:
 	if Input.is_action_pressed("blow_wind"):
+		play_wind_sound()
 		var wind_direction = get_wind_direction()
 		var wind_power = get_wind_power()
 		return wind_direction * MAX_WIND_SPEED * wind_power
@@ -120,3 +121,13 @@ func take_damage(damage: int, damage_source: Node2D):
 	
 	if containing_card:
 		containing_card.take_damage(1)
+
+var current_wind_sound_num = 1
+
+func play_wind_sound():
+	if current_wind_sound_num > 4:
+		current_wind_sound_num = 1
+	
+	get_node("BalloonWindSound" + str(current_wind_sound_num)).play()
+	
+	current_wind_sound_num += 1
