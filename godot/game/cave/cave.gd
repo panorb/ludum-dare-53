@@ -75,6 +75,7 @@ func reset() -> void:
 	walls = []
 	bats = []
 	trees = []
+	starting_position = Vector2(globals.SCREEN_WIDTH / 2 - globals.GUARANTEED_CAVE_WIDTH / 2, globals.SCREEN_WIDTH / 2 + globals.GUARANTEED_CAVE_WIDTH / 2)
 	_ready()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
