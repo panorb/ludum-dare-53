@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://co8lvaidh68lc"]
+[gd_scene load_steps=11 format=3 uid="uid://co8lvaidh68lc"]
 
 [ext_resource type="Script" path="res://game/ui/main_menu.gd" id="1_4sj8p"]
 [ext_resource type="Texture2D" uid="uid://cqn8b26y5ggxd" path="res://game/battle_field/battle_field_ground.svg" id="1_8jg14"]
@@ -13,27 +13,11 @@ bg_color = Color(0.294118, 0.239216, 0.266667, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe7rl"]
 bg_color = Color(0.341176, 0.282353, 0.321569, 1)
 
-[sub_resource type="GDScript" id="GDScript_d4inx"]
-script/source = "extends Button
-
-
-func _pressed():
-	get_tree().change_scene_to_file(\"res://game/game.tscn\")
-"
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfcos"]
 bg_color = Color(0.294118, 0.239216, 0.266667, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd8ts"]
 bg_color = Color(0.47451, 0.266667, 0.290196, 1)
-
-[sub_resource type="GDScript" id="GDScript_s641h"]
-script/source = "extends Button
-
-
-func _pressed():
-	get_tree().quit()
-"
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -132,7 +116,6 @@ theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_63ix6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fe7rl")
 text = "Start Game"
-script = SubResource("GDScript_d4inx")
 
 [node name="Label" type="Label" parent="Menu/CanvasLayer/VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(100, 200)
@@ -150,7 +133,6 @@ theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_cfcos")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jd8ts")
 text = "Exit Game"
-script = SubResource("GDScript_s641h")
 
 [node name="Hero" parent="." instance=ExtResource("6_iuub2")]
 position = Vector2(959, 2025)
