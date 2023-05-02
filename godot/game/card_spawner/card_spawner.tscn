@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://b80eb2bli1ahq"]
 
 [ext_resource type="Script" path="res://game/card_spawner/card_spawner.gd" id="1_05252"]
 [ext_resource type="Texture2D" uid="uid://ctgxfbfn5iso4" path="res://game/card_spawner/card_spawner_background.svg" id="2_ndkqx"]
 [ext_resource type="Texture2D" uid="uid://bjys70k0ko3s4" path="res://game/card_spawner/card_spawner_inner_wheel.svg" id="3_c5i5m"]
 [ext_resource type="Texture2D" uid="uid://cfsj8fjs2p5jp" path="res://game/card_spawner/card_spawner_core.svg" id="4_f6ax0"]
 [ext_resource type="Texture2D" uid="uid://gjklyh8245hr" path="res://shared/effect_ellipse.svg" id="5_urwxv"]
+[ext_resource type="AudioStream" uid="uid://56vy02tk4fp7" path="res://game/card_spawner/card_spawn.wav" id="6_gs6bs"]
 
 [sub_resource type="Animation" id="Animation_1nxe6"]
 length = 0.001
@@ -175,3 +176,18 @@ texture = ExtResource("5_urwxv")
 libraries = {
 "": SubResource("AnimationLibrary_rs1v2")
 }
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(-1944, -897)
+collision_layer = 4
+collision_mask = 4
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D"]
+color = Color(0.294118, 0.239216, 0.266667, 1)
+polygon = PackedVector2Array(-3840, 0, 920, 0, 870, 150, 931, 386, 760, 600, 574, 742, 631, 1081, 755, 1234, 869, 1255, 936, 1325, 936, 1574, 1061, 1851, 1203, 1949, 1333, 2135, 1695, 2140, 2175, 2223, 2548, 2046, 2799, 2032, 3017, 1942, 3233, 1689, 3240, 1225, 3360, 907, 3148, 667, 2817, 576, 2748, 314, 2920, 0, 9056, 0, 8907, 4178, -3823, 4157)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-3840, 0, 920, 0, 870, 150, 931, 386, 760, 600, 574, 742, 631, 1081, 755, 1234, 869, 1255, 936, 1325, 936, 1574, 1061, 1851, 1203, 1949, 1333, 2135, 1695, 2140, 2175, 2223, 2548, 2046, 2799, 2032, 3017, 1942, 3233, 1689, 3240, 1225, 3360, 907, 3148, 667, 2817, 576, 2748, 314, 2920, 0, 9056, 0, 8907, 4178, -3823, 4157)
+
+[node name="CardSpawnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_gs6bs")
