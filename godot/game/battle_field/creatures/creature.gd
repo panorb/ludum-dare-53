@@ -19,7 +19,8 @@ func take_damage(damage):
 
 	if health < 0:
 		health = 0
-		animation_player.play("die")
+		if old_health > 0:
+			animation_player.play("die")
 	else:
 		animation_player.play("hurt")
 
