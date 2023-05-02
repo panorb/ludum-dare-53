@@ -21,8 +21,9 @@ func execute_round(card_type : Card.TYPE, card_value : int):
 	
 	await hero.attack_finished
 	
-	monster.play_attack_animation()
-	await monster.attack_finished
+	if monster.health > 0:
+		monster.play_attack_animation()
+		await monster.attack_finished
 	
 	if monster.health > 0 and hero.health > 0:
 		round_ended.emit()

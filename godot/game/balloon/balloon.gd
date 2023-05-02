@@ -11,7 +11,7 @@ const PADDING_LEFT = 50
 const PADDING_RIGHT = 3840 - 50
 const PADDING_BOTTOM = 2160 - 200
 
-const DAMAGE_BUMP_STRENGTH = 500
+const DAMAGE_BUMP_STRENGTH = 100
 
 var card_scene = preload("res://game/cards/card.tscn")
 var containing_card: Card

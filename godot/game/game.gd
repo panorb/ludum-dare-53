@@ -1,5 +1,8 @@
 extends Node2D
 
+signal game_won
+signal game_lost
+
 @onready var cave = get_node('Cave')
 @onready var card_spawner = get_node('CardSpawner')
 @onready var battle_field = get_node('BattleField')
@@ -32,10 +35,10 @@ func _ready():
 	
 	
 func _on_lose():
-	print_debug("Lose")
+	game_lost.emit()
 	
 func _on_win():
-	print_debug("Win")
+	game_won.emit()
 
 func _physics_process(delta):
 	if camera_follow:
