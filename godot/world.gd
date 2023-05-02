@@ -25,9 +25,8 @@ func connect_signals(instance : Node):
 func transition_to(next_scene : String):
 	var scene_instance : CanvasItem = scenes[next_scene].instantiate()
 	scene_instance.name = "NextScene"
-	scene_instance.modulate = Color.TRANSPARENT
-	connect_signals(scene_instance)
 	add_child(scene_instance)
+	connect_signals(scene_instance)
 	get_node("ActiveScene").queue_free()
 	await get_tree().create_timer(0.1).timeout
 	scene_instance.name = "ActiveScene"
@@ -35,7 +34,6 @@ func transition_to(next_scene : String):
 func game_lost():
 	var scene_instance : CanvasItem = scenes["ending_screen"].instantiate()
 	scene_instance.name = "NextScene"
-	scene_instance.modulate = Color.TRANSPARENT
 	connect_signals(scene_instance)
 	add_child(scene_instance)
 	scene_instance.initialize("The hero has fallen. We are all doomed.")
@@ -46,7 +44,6 @@ func game_lost():
 func game_won():
 	var scene_instance : CanvasItem = scenes["ending_screen"].instantiate()
 	scene_instance.name = "NextScene"
-	scene_instance.modulate = Color.TRANSPARENT
 	connect_signals(scene_instance)
 	add_child(scene_instance)
 	scene_instance.initialize("The dragon was slain. We're save! Hurray!")

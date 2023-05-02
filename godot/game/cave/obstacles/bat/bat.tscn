@@ -1,13 +1,13 @@
 [gd_scene load_steps=16 format=3 uid="uid://dueqn07kx1bbs"]
 
 [ext_resource type="Script" path="res://game/cave/obstacles/bat/bat.gd" id="1_b1u6y"]
-[ext_resource type="Texture2D" uid="uid://4apkj8r7b03b" path="res://game/cave/obstacles/bat/bat.svg" id="2_30wav"]
+[ext_resource type="Texture2D" uid="uid://qhfbdhrfb4uh" path="res://game/cave/obstacles/bat/bat.svg" id="2_30wav"]
 [ext_resource type="Script" path="res://game/cave/obstacles/bat/states/asleep.gd" id="3_qt4gw"]
 [ext_resource type="Script" path="res://game/cave/obstacles/bat/states/hunt.gd" id="4_hqkn6"]
 [ext_resource type="Script" path="res://game/cave/obstacles/bat/states/alert.gd" id="5_xe0d7"]
 [ext_resource type="Script" path="res://game/cave/obstacles/bat/states/fly.gd" id="6_rh57w"]
-[ext_resource type="AudioStream" uid="uid://b8ryyw3iintwx" path="res://game/cave/obstacles/bat/bat_cry_1.wav" id="7_weeie"]
-[ext_resource type="AudioStream" uid="uid://fsnj2akbdcsr" path="res://game/cave/obstacles/bat/bat_attack_1.wav" id="8_pdobs"]
+[ext_resource type="AudioStream" uid="uid://cej3h7oif43lq" path="res://game/cave/obstacles/bat/bat_cry_1.wav" id="7_weeie"]
+[ext_resource type="AudioStream" uid="uid://bg06q0xwasstr" path="res://game/cave/obstacles/bat/bat_attack_1.wav" id="8_pdobs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ihqi0"]
 atlas = ExtResource("2_30wav")
