@@ -91,7 +91,7 @@ theme_override_colors/font_shadow_color = Color(0.294118, 0.239216, 0.266667, 1)
 theme_override_constants/shadow_offset_x = 13
 theme_override_constants/shadow_offset_y = 15
 theme_override_font_sizes/font_size = 300
-text = "MAIL-IN-VEGEANCE"
+text = "MAIL-IN VENGEANCE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
