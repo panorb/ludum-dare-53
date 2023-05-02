@@ -10,11 +10,12 @@ signal game_lost
 @onready var camera : Camera2D = get_node("GameCamera")
 @onready var hero_health_bar : TextureProgressBar = $"UI/HBoxContainer/HBoxContainer/VBoxContainer/Healthbar Main"
 @onready var monster_health_bar : TextureProgressBar = $"UI/HBoxContainer/HBoxContainer2/VBoxContainer/Healthbar Enemy" 
+@onready var background_sound : AudioStreamPlayer = $BackgroundSound
 
 var camera_follow : bool = true
 
 func _ready():
-	# await get_tree().idle_frame
+	background_sound.play()
 
 	battle_field.hero.health_changed.connect(hero_health_bar._on_hero_health_changed)
 	battle_field.monster.health_changed.connect(monster_health_bar._on_dragon_health_changed)

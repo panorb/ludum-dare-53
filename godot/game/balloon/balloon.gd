@@ -116,8 +116,8 @@ func take_damage(damage: int, damage_source: Node2D):
 	
 	invincible_timer.start()
 	
-	var bump_vector = (global_position - damage_source.global_position).normalized()
-	velocity += bump_vector * DAMAGE_BUMP_STRENGTH * damage
+	#var bump_vector = (global_position - damage_source.global_position).normalized()
+	#velocity += bump_vector * DAMAGE_BUMP_STRENGTH * damage
 	
 	if containing_card:
 		containing_card.take_damage(1)

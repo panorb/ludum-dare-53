@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8bt3hpmja0km"]
+[gd_scene load_steps=11 format=3 uid="uid://8bt3hpmja0km"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_ak8ma"]
 [ext_resource type="PackedScene" uid="uid://0c34dfxbhfdx" path="res://game/battle_field/battle_field.tscn" id="2_kbeyu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dqrb0owc04n30" path="res://game/balloon/balloon.tscn" id="5_jytc0"]
 [ext_resource type="PackedScene" uid="uid://bf8syl2igprqk" path="res://game/ui/healthbar.tscn" id="6_hh28r"]
 [ext_resource type="PackedScene" uid="uid://dr0frejjolbwb" path="res://game/cave_segment/cave_segment.tscn" id="6_uxkq5"]
+[ext_resource type="AudioStream" uid="uid://dxss2rjtux53e" path="res://game/cave_background.ogg" id="10_yhmmh"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ak8ma")
@@ -112,6 +113,9 @@ position = Vector2(1938, 1505)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 25.0
+
+[node name="BackgroundSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_yhmmh")
 
 [connection signal="button_down" from="UI/Hero Button" to="UI/HBoxContainer/HBoxContainer/VBoxContainer/Healthbar Main" method="_on_hero_button_down"]
 [connection signal="button_down" from="UI/Enemy Button" to="UI/HBoxContainer/HBoxContainer2/VBoxContainer/Healthbar Enemy" method="_on_enemy_button_down"]
