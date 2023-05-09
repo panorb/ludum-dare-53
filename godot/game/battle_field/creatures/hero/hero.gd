@@ -1,5 +1,13 @@
 extends Creature
 
+@onready var sword_strike_sounds = [
+	$SoundStrike1,
+	$SoundStrike2,
+	$SoundStrike3
+]
+
+var current_strike_sound_index = 0
+
 func _ready():
 	max_health = Globals.MAX_HEALTH_HERO
 	health = Globals.MAX_HEALTH_HERO
@@ -16,12 +24,7 @@ func play_sword_attack_sequence(repeats : int):
 	await animation_player.animation_finished
 	attack_finished.emit()
 
-var current_strike_sound_num = 1
 
 func play_strike_sound():
-	if current_strike_sound_num > 3:
-		current_strike_sound_num = 1
-	
-	get_node("SoundStrike" + str(current_strike_sound_num)).play()
-	
-	current_strike_sound_num += 1
+	sword_strike_sounds[current_strike_sound_index].play()
+	current_strike_sound_index = (current_strike_sound_index + 1) % sword_strike_sounds.size()
