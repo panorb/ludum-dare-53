@@ -265,7 +265,7 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id="Animation_s6v2j"]
 resource_name = "die"
-length = 1.4
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
