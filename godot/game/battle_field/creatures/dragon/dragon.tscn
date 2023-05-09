@@ -149,7 +149,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id="Animation_rthm7"]
 resource_name = "attack"
-length = 1.4
+length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
