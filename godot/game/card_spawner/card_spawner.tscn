@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bjys70k0ko3s4" path="res://game/card_spawner/card_spawner_inner_wheel.svg" id="3_c5i5m"]
 [ext_resource type="Texture2D" uid="uid://cfsj8fjs2p5jp" path="res://game/card_spawner/card_spawner_core.svg" id="4_f6ax0"]
 [ext_resource type="Texture2D" uid="uid://gjklyh8245hr" path="res://shared/effect_ellipse.svg" id="5_urwxv"]
-[ext_resource type="AudioStream" uid="uid://56vy02tk4fp7" path="res://game/card_spawner/card_spawn.wav" id="6_gs6bs"]
+[ext_resource type="AudioStream" uid="uid://dltq2lgjdgq6m" path="res://game/card_spawner/card_spawn.wav" id="6_gs6bs"]
 
 [sub_resource type="Animation" id="Animation_1nxe6"]
 length = 0.001
