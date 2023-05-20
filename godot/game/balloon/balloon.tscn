@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dqrb0owc04n30"]
+[gd_scene load_steps=19 format=3 uid="uid://dqrb0owc04n30"]
 
 [ext_resource type="Script" path="res://game/balloon/balloon.gd" id="1_00v08"]
 [ext_resource type="Texture2D" uid="uid://baoqd4onlxlqo" path="res://game/balloon/balloon_cage.svg" id="2_7bswg"]
@@ -11,6 +11,11 @@
 [ext_resource type="AudioStream" uid="uid://dbkmdf1snu1y4" path="res://game/balloon/balloon_wind2.wav" id="9_msuew"]
 [ext_resource type="AudioStream" uid="uid://bsyu6fyo7kybr" path="res://game/balloon/balloon_wind3.wav" id="10_eey7m"]
 [ext_resource type="AudioStream" uid="uid://cwtno57x16r1h" path="res://game/balloon/balloon_wind4.wav" id="11_wvxw2"]
+[ext_resource type="AudioStream" uid="uid://ovcofn8c1kcq" path="res://game/balloon/balloon_pop1.wav" id="12_ahmgp"]
+[ext_resource type="AudioStream" uid="uid://bie187ataj2l4" path="res://game/balloon/balloon_pop2.wav" id="13_rfc5l"]
+[ext_resource type="AudioStream" uid="uid://dqv0putfvkn5d" path="res://game/balloon/balloon_pop3.wav" id="14_01ldc"]
+[ext_resource type="AudioStream" uid="uid://bt1b222l3byl4" path="res://game/balloon/balloon_pop4.wav" id="15_4541o"]
+[ext_resource type="AudioStream" uid="uid://l48sgj6rknnd" path="res://game/balloon/balloon_invincible.wav" id="16_vuyj4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bwuof"]
 radius = 190.0
@@ -72,6 +77,21 @@ stream = ExtResource("10_eey7m")
 [node name="BalloonWindSound4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_wvxw2")
 
+[node name="BalloonPopSound1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ahmgp")
+
+[node name="BalloonPopSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_rfc5l")
+
+[node name="BalloonPopSound3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_01ldc")
+
+[node name="BalloonPopSound4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_4541o")
+
+[node name="BalloonInvincibleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_vuyj4")
+
 [node name="InvincibleTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true

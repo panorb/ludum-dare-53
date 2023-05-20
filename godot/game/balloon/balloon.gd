@@ -81,12 +81,14 @@ func _physics_process(delta : float) -> void:
 	move_and_slide()
 
 var last_wind_sound_play_time = 0.0
+var time_since_last_invincible_sound = 99.0
 
 func _process(delta: float) -> void:
 	last_wall_hit_sound_play_time = (
 		last_wall_hit_sound_play_time - delta if last_wall_hit_sound_play_time > 0 else 0
 	)
 	last_wind_sound_play_time -= delta
+	time_since_last_invincible_sound += delta
 	
 	var collision = get_last_slide_collision()
 	if collision:
@@ -97,6 +99,11 @@ func _process(delta: float) -> void:
 				# Set new wait time bettwen 0.7 and 1.3
 				last_wall_hit_sound_play_time = randf_range(0.7, 1.3)
 	visible = invincible_timer.time_left <= 0 or int(invincible_timer.time_left / 0.15) % 2 == 0
+	
+	if invincible_timer.time_left > 0 and time_since_last_invincible_sound > 0.2 + (invincible_timer.time_left / invincible_timer.wait_time) * 0.5:
+		time_since_last_invincible_sound = 0.0
+		get_node("BalloonInvincibleSound").play()
+		
 	
 	if Input.is_action_pressed("blow_wind"):
 		if last_wind_sound_play_time <= 0.0:
@@ -129,9 +136,20 @@ func take_damage(damage: int, damage_source: Node2D):
 	#velocity += bump_vector * DAMAGE_BUMP_STRENGTH * damage
 	
 	if containing_card:
+		play_pop_sound()
 		containing_card.take_damage(1)
 
 var current_wind_sound_num = 1
+var current_pop_sound_num = 1
+
+func play_pop_sound():
+	if current_pop_sound_num > 4:
+		current_pop_sound_num = 1
+	
+	get_node("BalloonPopSound" + str(current_pop_sound_num)).play()
+	
+	current_pop_sound_num += 1
+
 
 func play_wind_sound():
 	if current_wind_sound_num > 4:
