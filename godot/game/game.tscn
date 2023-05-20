@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dqrb0owc04n30" path="res://game/balloon/balloon.tscn" id="5_jytc0"]
 [ext_resource type="PackedScene" uid="uid://bf8syl2igprqk" path="res://game/ui/healthbar.tscn" id="6_hh28r"]
 [ext_resource type="PackedScene" uid="uid://dr0frejjolbwb" path="res://game/cave_segment/cave_segment.tscn" id="6_uxkq5"]
-[ext_resource type="AudioStream" uid="uid://cmg2rvyvgl6gu" path="res://game/cave_background.ogg" id="10_yhmmh"]
+[ext_resource type="AudioStream" uid="uid://dxss2rjtux53e" path="res://game/cave_background.ogg" id="10_yhmmh"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ak8ma")
